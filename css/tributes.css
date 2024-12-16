@@ -49,7 +49,7 @@ body {
 .banner-image img {
   width: 100%; /* Image scales dynamically within the container */
   height: auto; /* Maintain aspect ratio */
-  border-radius: 0.5rem; /* Optional rounded corners */
+ /* border-radius: 0.5rem;  Optional rounded corners */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
 }
 

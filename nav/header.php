@@ -14,9 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet" />
 
   <!-- Stylesheets -->
-  <link href="css/style.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/query.css" />
-  <link rel="stylesheet" href="css/tributes.css" />
+  <link href="css/main.css" rel="stylesheet" />
+ <!--  <link rel="stylesheet" href="css/query.css" />
+  <link rel="stylesheet" href="css/tributes.css" /> -->
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/dafa6859c8.js" crossorigin="anonymous">
