@@ -14,7 +14,8 @@ if ($conn->connect_error) {
 }
 
 // Log admin activities
-function logAdminActivity($adminId, $action) {
+function logAdminActivity($adminId, $action)
+{
     global $conn;
 
     $stmt = $conn->prepare("INSERT INTO admin_activity_log (admin_id, action) VALUES (?, ?)");
@@ -26,5 +27,5 @@ function logAdminActivity($adminId, $action) {
     } else {
         error_log("Failed to prepare logAdminActivity statement: " . $conn->error);
     }
-} */
+}
 ?>
