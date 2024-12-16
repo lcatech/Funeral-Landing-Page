@@ -22,14 +22,17 @@ if ($randomIdQuery->num_rows > 0) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+
     <title>Tributes | Rev Elijah O. Akinyemi</title>
 
 </head>
 <?php include 'nav/header.php'; ?>
 
 <body>
-    
+
     <!-- Banner Section -->
     <div class="banner">
         <div class="banner-text">
@@ -42,13 +45,19 @@ if ($randomIdQuery->num_rows > 0) {
     </div>
 
     <!-- Leave a Tribute Button -->
-    <div class="banner-button">
-        <a href="sharememory.php" class="cta-button">Leave a Tribute</a>
-    </div>
 
+    <div class="tribute-wrapper">
+        <div class="h1-container">
+            <h1>Tributes</h1>
+        </div>
+
+        <div class="banner-button">
+            <a href="sharememory.php" class="cta-button"> <i class="fa-solid fa-pen"></i> Leave a Tribute</a>
+        </div>
+    </div>
     <!-- Tributes Section -->
     <div class="tributes-container">
-        <h1>Tributes</h1>
+
         <?php if ($result->num_rows > 0): ?>
             <div class="tributes-list">
                 <?php while ($row = $result->fetch_assoc()): ?>

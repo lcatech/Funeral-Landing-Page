@@ -8,18 +8,10 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" 
-    rel="stylesheet" 
-  />
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" 
-    rel="stylesheet" 
-  />
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" 
-    rel="stylesheet" 
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet" />
 
   <!-- Stylesheets -->
   <link href="css/style.css" rel="stylesheet" />
@@ -27,22 +19,16 @@
   <link rel="stylesheet" href="css/tributes.css" />
 
   <!-- Font Awesome -->
-  <script 
-    src="https://kit.fontawesome.com/dafa6859c8.js" 
-    crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/dafa6859c8.js" crossorigin="anonymous">
   </script>
 
   <!-- Ionicons -->
-  <script 
-    type="module" 
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
   </script>
-  <script 
-    nomodule 
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
   </script>
 
-  
+
 </head>
 
 <header class="header">
@@ -60,4 +46,4 @@
 </header>
 
 <!-- Custom Script -->
-<script defer src="../script.js"></script>
+<script defer src="script.js"></script>

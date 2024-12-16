@@ -53,6 +53,15 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
 }
 
+.tribute-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 26rem;
+  padding-right: 26rem;
+}
+
 /* Tributes Section */
 .tributes-container {
   padding: 2rem 4rem;
@@ -63,7 +72,6 @@ body {
   font-size: 2.4rem;
   font-weight: 700;
   color: #efbf04;
-  margin-bottom: 2rem;
 }
 
 .tribute {
@@ -72,6 +80,11 @@ body {
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
   margin-bottom: 2rem;
+}
+
+.h1-container h1 {
+  color: #fff;
+  margin-top: 2rem;
 }
 
 .tribute h2 {
@@ -118,6 +131,11 @@ p {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .tribute-wrapper {
+    flex-direction: column;
+    gap: 4rem;
   }
 
   .banner-image {

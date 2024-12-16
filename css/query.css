@@ -19,6 +19,12 @@
     justify-content: space-around;
     padding: 4rem;
   }
+
+  .tribute-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
 }
 
 @media (max-width: 63em) {
@@ -66,7 +72,12 @@
   }
 
   .main-nav {
-    background-color: rgba(207, 207, 207, 0.95); /* Slightly more opaque for clarity */
+    background-color: rgba(
+      207,
+      207,
+      207,
+      0.95
+    ); /* Slightly more opaque for clarity */
     position: absolute;
     top: 0;
     right: 0;

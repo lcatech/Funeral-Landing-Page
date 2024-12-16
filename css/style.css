@@ -64,7 +64,6 @@ nav {
   height: 6rem;
   padding: 0 2rem;
   margin-bottom: 5rem; /* Optional: control header-to-content spacing */
-
 }
 
 .main-nav-list {
@@ -113,7 +112,6 @@ nav {
   background-color: #efbf04;
   border: none;
 }
-
 
 /* Dropdown Styling */
 
@@ -170,7 +168,6 @@ nav {
   border-radius: 0.3rem;
 }
 
-
 /*---------------- NAV SECTION ------------------*/
 /* MOBILE */
 /*---------------- NAV SECTION ------------------*/
@@ -191,7 +188,6 @@ nav {
 .icon-mobile-nav[name="close-outline"] {
   display: none;
 }
-
 
 /*---------------- HERO SECTION ------------------*/
 
@@ -279,8 +275,6 @@ nav {
   padding-bottom: 5rem;
   padding-right: 6rem;
 }
-
-
 
 .form-container {
   max-width: 450px;
@@ -522,7 +516,6 @@ button.delete-button:active {
   }
 }
 
-
 /* Tributes Section */
 .tributes-container {
   max-width: 1000px;
@@ -625,7 +618,6 @@ button.delete-button:active {
   background: #f4f4f4;
 }
 
-
 /* Leave a Tribute Button */
 .banner-button {
   text-align: center;
@@ -648,7 +640,6 @@ button.delete-button:active {
   background: #d1a204;
   transform: translateY(-3px);
 }
-
 
 /* Gallery Container */
 .gallery-container {
