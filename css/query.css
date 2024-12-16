@@ -183,3 +183,26 @@
     width: 80%;
   }
 }
+
+
+@media (max-width: 768px) {
+  .tribute {
+    flex-direction: column; /* Stack the image and text vertically on smaller screens */
+    align-items: center;
+    text-align: center;
+  }
+  .tribute-date {
+    flex-direction: column; /* Stack the image and text vertically on smaller screens */
+    align-items: center;
+    text-align: center;
+  }
+
+  .tribute-thumbnail {
+    padding-top: 5px;
+    max-width: 100px; /* Slightly smaller thumbnails for mobile */
+  }
+
+  .tribute-text {
+    margin-top: 2rem;
+  }
+}

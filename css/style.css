@@ -554,7 +554,9 @@ button.delete-button:active {
   color: #777;
   margin-top: -0.5rem;
   margin-bottom: 1rem;
+  text-align: left; /* Ensures left alignment */
 }
+
 
 .tribute p {
   font-size: 1rem;
@@ -563,16 +565,21 @@ button.delete-button:active {
 }
 
 .tribute-thumbnail {
-  max-width: 150px; /* Thumbnail size */
-  height: auto;
+  max-height: 300px; /* Ensure the height is also constrained */
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Ensure the image fills the box nicely without distortion */
+  margin: 0 auto; /* Center the image if there's extra spacing */
+
 }
 
 .tribute-thumbnail:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Modal Section */
 .modal {
