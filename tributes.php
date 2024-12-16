@@ -86,6 +86,7 @@ if ($randomIdQuery->num_rows > 0) {
         <?php endif; ?>
     </div>
     <?php include 'nav/footer.php'; ?>
+    
 </body>
 
 

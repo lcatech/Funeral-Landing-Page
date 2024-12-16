@@ -39,11 +39,14 @@
     </ul>
   </nav>
 
+  <!-- Mobile Navigation Toggle Button -->
   <button class="btn-mobile-nav">
     <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
     <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
   </button>
 </header>
 
+
 <!-- Custom Script -->
-<script defer src="nav/script.js"></script>
+<script defer src="js/script.js"></script>
+
