@@ -1,8 +1,5 @@
 <?php
-// $servername = "localhost";
-// $username = "revelukf_admin";
-// $password = "7Thunder$!56";
-// $dbname = "revelukf_tributes";
+
 
 
 // local server
