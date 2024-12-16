@@ -46,4 +46,4 @@
 </header>
 
 <!-- Custom Script -->
-<script defer src="script.js"></script>
+<script defer src="nav/script.js"></script>
