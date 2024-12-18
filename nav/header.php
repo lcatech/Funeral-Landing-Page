@@ -3,7 +3,7 @@
   <meta name="Memorial Website" content="Rev. Elijah O. Akinyemi's Memorial" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="images/favicon.ico" />
-  <title>Elijah Akinyemi</title>
+  <title>In Loving Memory | Reverend Elijah O. Akinyemi</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

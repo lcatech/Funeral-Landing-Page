@@ -34,7 +34,9 @@ body::before {
   background-image: url("../images/background.webp") !important;
   background-size: cover;
   background-position: center;
-  filter: blur(3px);
+ filter: blur(2.8px); 
+ width: 100%;
+ height: auto; /* Maintain aspect ratio */
   z-index: -1;
 }
 
@@ -246,7 +248,7 @@ nav {
 }
 
 .hero-quote {
-  font-size: 2.4rem;
+  font-size: 3rem;
   font-family: Sacramento;
   text-align: center;
   margin-top: 2rem;
@@ -273,6 +275,7 @@ nav {
   margin-bottom: 2rem;
   font-family: Montserrat;
   color: #fad14b;
+  font-weight: bold;
 }
 
 /*---------------- FOOTER SECTION ------------------*/

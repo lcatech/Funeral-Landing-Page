@@ -23,18 +23,24 @@
       </div>
 
       <div class="details-container">
-        <h5> Funeral Arrangements </h5>
-
-        <p class="funeral-text">Service of Songs (Port Harcourt) <br>
-          Monday 17, February 2025</p>
+        <h5> FUNERAL ARRANGEMENTS </h5>
 
         <div class="funeral-text">
-          Funeral Service (Lagos) <br>
-          Tuesday 20, February 2025
+          <b>SERVICE OF SONGS</b> <br>
+        (Port Harcourt) <br>
+          Monday 17, February 2025
         </div>
 
         <div class="funeral-text">
-          Private Interment (Port Harcourt) <br>
+          <b>FUNERAL SERVICE </b> <br>
+          Local Christian Assembly, Lagos <br>
+          136, Lagos Street, Ebute-Metta, Lagos <br>
+          Thursday 20, February 2025
+        </div>
+
+        <div class="funeral-text">
+          <b>PRIVATE INTERMENT</b> </br> 
+          (Port Harcourt) <br>
           Saturday 22, February 2025
         </div>
 
