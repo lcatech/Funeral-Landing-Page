@@ -1,6 +1,7 @@
 <?php
-$galleryDir = 'uploads/'; // Path to the gallery folder
+$galleryDir = 'images/Grid Images/'; // Path to the gallery folder
 $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Allowed image types
+
 
 // Scan the directory for files
 $images = array_filter(scandir($galleryDir), function ($file) use ($galleryDir, $allowedExtensions) {
