@@ -15,7 +15,7 @@
 
   <!-- Stylesheets -->
   <link href="css/main.css" rel="stylesheet" />
- <!--  <link rel="stylesheet" href="css/query.css" />
+  <!--  <link rel="stylesheet" href="css/query.css" />
   <link rel="stylesheet" href="css/tributes.css" /> -->
 
   <!-- Font Awesome -->
@@ -36,6 +36,7 @@
     <ul class="main-nav-list">
       <li><a class="main-nav-link" href="index.php">Home</a></li>
       <li><a class="main-nav-link" href="tributes.php">Tributes</a></li>
+      <li><a class="main-nav-link" href="gallery2.php">Gallery</a></li>
     </ul>
   </nav>
 
@@ -49,4 +50,3 @@
 
 <!-- Custom Script -->
 <script defer src="js/script.js"></script>
-

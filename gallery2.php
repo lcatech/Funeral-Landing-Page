@@ -17,13 +17,16 @@ $images = array_values($images);
 $itemsPerPage = 20;
 $totalImages = count($images);
 $totalPages = ceil($totalImages / $itemsPerPage);
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
 $page = max(1, min($page, $totalPages)); // Clamp page value between 1 and totalPages
 $startIndex = ($page - 1) * $itemsPerPage;
 $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 ?>
+
+<?php include 'nav/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Gallery</title>
     <style>
@@ -36,34 +39,41 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Customizable grid: Set max 4 items per row */
-            gap: 1rem;
+            grid-template-columns: repeat(4, 1fr);
+            /* Customizable grid: Set max 4 items per row */
+            gap: 2.2rem;
         }
 
         .gallery-item {
-    position: relative;
-    width: 100%;
-    padding-top: 100%; /* Aspect ratio 1:1 (square) */
-    overflow: hidden; /* Ensures images don't overflow */
-}
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            /* Aspect ratio 1:1 (square) */
+            overflow: hidden;
+            border-radius: 1.2rem;
+            /* Ensures images don't overflow */
+        }
 
-.gallery-item img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures consistent sizing */
-    object-position: center; /* Centers the image within the grid cell */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.2s;
-}
+        .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures consistent sizing */
+            object-position: center;
+            /* Centers the image within the grid cell */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.6s;
+        }
 
-.gallery-item img:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
-}
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            /* Slight zoom effect on hover */
+        }
 
 
         /* Modal Styling */
@@ -155,11 +165,21 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
             background: #d1a204;
             pointer-events: none;
         }
+
+        @media (max-width: 63em) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* Customizable grid: Set max 4 items per row */
+                gap: 2rem;
+            }
+
+        }
     </style>
 </head>
+
 <body>
-<div class="gallery-container">
-        <h1>Gallery</h1>
+    <div class="gallery-container">
+        <h1 style="color: #d1a204; font-size: 6rem; font-family: Sofia; margin-bottom: 3rem;">Gallery</h1>
         <div class="gallery-grid">
             <?php foreach ($paginatedImages as $index => $image): ?>
                 <div class="gallery-item">
@@ -174,7 +194,8 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
         <?php foreach ($paginatedImages as $index => $image): ?>
             <div id="modal-<?= $startIndex + $index ?>" class="modal">
                 <a href="#" class="modal-close">&times;</a>
-                <a href="#modal-<?= $startIndex + ($index - 1 + $itemsPerPage) % $itemsPerPage ?>" class="modal-nav modal-prev">&#8249;</a>
+                <a href="#modal-<?= $startIndex + ($index - 1 + $itemsPerPage) % $itemsPerPage ?>"
+                    class="modal-nav modal-prev">&#8249;</a>
                 <img src="<?= $galleryDir . $image ?>" alt="Full Image">
                 <a href="#modal-<?= $startIndex + ($index + 1) % $itemsPerPage ?>" class="modal-nav modal-next">&#8250;</a>
             </div>
@@ -211,4 +232,6 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
         });
     </script>
 </body>
+<?php include 'nav/footer.php'; ?>
+
 </html>

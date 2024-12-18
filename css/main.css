@@ -74,6 +74,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 5rem;
+  margin-left: -4rem;
 }
 
 .main-nav-link:link,
@@ -633,15 +634,13 @@ button.delete-button:active {
 }
 
 /* Gallery Grid */
-.gallery-grid {
+/* .gallery-grid {
   display: grid;
   padding: 10rem;
-
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-
   gap: 2rem;
-}
+} */
 
 /* .gallery-item {
   position: relative;
