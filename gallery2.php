@@ -39,7 +39,7 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             /* Customizable grid: Set max 4 items per row */
             gap: 2.2rem;
         }
@@ -164,6 +164,14 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
         .pagination .active {
             background: #d1a204;
             pointer-events: none;
+        }
+
+        @media (max-width: 75em) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                /* Customizable grid: Set max 4 items per row */
+                gap: 2rem;
+            }
         }
 
         @media (max-width: 63em) {
