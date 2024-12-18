@@ -34,9 +34,9 @@ body::before {
   background-image: url("../images/background.webp") !important;
   background-size: cover;
   background-position: center;
- filter: blur(2.8px); 
- width: 100%;
- height: auto; /* Maintain aspect ratio */
+  filter: blur(2.8px);
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
   z-index: -1;
 }
 
@@ -635,27 +635,30 @@ button.delete-button:active {
 /* Gallery Grid */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  padding: 10rem;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  gap: 2rem;
 }
 
-.gallery-item {
+/* .gallery-item {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .gallery-item img {
-  width: 100%;
+  width: 20rem;
   height: auto;
-  display: block;
-  transition: transform 0.3s ease;
+  /* transition: transform 0.3s ease; */
 }
 
-.gallery-item:hover img {
+/* .gallery-item:hover img {
   transform: scale(1.05);
-}
+} */
 
 .gallery-title {
   margin-top: 0.5rem;

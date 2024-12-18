@@ -632,7 +632,7 @@ button.delete-button:active {
   transform: translateY(-3px);
 }
 
-/* Gallery Container */
+/* Gallery Container
 .gallery-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -647,7 +647,7 @@ button.delete-button:active {
 }
 
 /* Gallery Grid */
-.gallery-grid {
+/* .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
@@ -675,7 +675,8 @@ button.delete-button:active {
   margin-top: 0.5rem;
   font-size: 1rem;
   color: #555;
-}
+} */
+*/
 
 /* Modal */
 .modal {
