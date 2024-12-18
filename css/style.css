@@ -252,19 +252,6 @@ nav {
   color: #fad14b;
 }
 
-.funeral-details {
-  align-self: center;
-  color: #fad14b;
-  text-align: center;
-  font-size: 2rem;
-}
-
-.funeral-details h5 {
-  font-size: 3.2rem;
-  margin-bottom: 2rem;
-  font-family: Montserrat;
-}
-
 /*---------------- FOOTER SECTION ------------------*/
 
 .footer-container {
@@ -557,7 +544,6 @@ button.delete-button:active {
   text-align: left; /* Ensures left alignment */
 }
 
-
 .tribute p {
   font-size: 1rem;
   color: #555;
@@ -573,13 +559,11 @@ button.delete-button:active {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   object-fit: cover; /* Ensure the image fills the box nicely without distortion */
   margin: 0 auto; /* Center the image if there's extra spacing */
-
 }
 
 .tribute-thumbnail:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 
 /* Modal Section */
 .modal {
