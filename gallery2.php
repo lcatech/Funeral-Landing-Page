@@ -32,7 +32,7 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
     <style>
         /* Grid Layout */
         .gallery-container {
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 2rem;
         }
