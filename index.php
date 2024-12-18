@@ -18,7 +18,7 @@
       </div>
 
       <div class="hero-image">
-        <img src="images/hero-image.png" alt="image of a man" />
+        <img src="images/hero-image.png" alt="" />
         <p class="hero-quote">A light that will never fade</p>
       </div>
 

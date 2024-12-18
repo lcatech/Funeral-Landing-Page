@@ -223,7 +223,7 @@ nav {
 
 .hero-image img {
   width: 100%; /* Ensure image scales with container */
-  max-width: 350px; /* Set maximum width for image */
+  max-width: 100%; /* Set maximum width for image */
   height: auto; /* Maintain aspect ratio */
   border-radius: 50%; /* Circular image */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
