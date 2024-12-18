@@ -39,7 +39,7 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(3, 2fr);
+            grid-template-columns: repeat(4, 2fr);
             /* Customizable grid: Set max 4 items per row */
             gap: 2.2rem;
         }
