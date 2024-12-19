@@ -48,7 +48,9 @@ if ($randomIdQuery->num_rows > 0) {
 
     <div class="tribute-wrapper">
         <div class="h1-container">
-            <h1>Tributes</h1>
+            <h1 style="  color: #efbf04;
+font-size: 4rem;
+  font-family: Sofia;">Tributes</h1>
         </div>
 
         <div class="banner-button">
@@ -86,7 +88,7 @@ if ($randomIdQuery->num_rows > 0) {
         <?php endif; ?>
     </div>
     <?php include 'nav/footer.php'; ?>
-    
+
 </body>
 
 

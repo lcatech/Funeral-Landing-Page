@@ -791,8 +791,9 @@ button.delete-button:active {
 }
 
 .h1-container h1 {
-  color: #fff;
+  color: #efbf04;
   margin-top: 2rem;
+  font-family: Sofia;
 }
 
 .tribute h2 {
