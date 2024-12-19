@@ -36,7 +36,7 @@
     <ul class="main-nav-list">
       <li><a class="main-nav-link" href="index.php">Home</a></li>
       <li><a class="main-nav-link" href="tributes.php">Tributes</a></li>
-      <li><a class="main-nav-link" href="gallery2.php">Gallery</a></li>
+      <li><a class="main-nav-link" href="gallery.php">Gallery</a></li>
     </ul>
   </nav>
 

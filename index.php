@@ -40,8 +40,7 @@
 
         <div class="funeral-text">
           <b>PRIVATE INTERMENT</b> </br> 
-          (Port Harcourt) <br>
-          Saturday 22, February 2025
+           <br>
         </div>
 
       </div>
