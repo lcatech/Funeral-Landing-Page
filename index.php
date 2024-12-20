@@ -38,10 +38,10 @@
           Thursday 20, February 2025
         </div>
 
-        <div class="funeral-text">
+        <!-- <div class="funeral-text">
           <b>PRIVATE INTERMENT</b> </br> 
            <br>
-        </div>
+        </div> -->
 
       </div>
     </div>
