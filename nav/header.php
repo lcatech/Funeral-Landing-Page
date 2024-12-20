@@ -17,6 +17,7 @@
   <link href="css/main.css" rel="stylesheet" />
   <!--  <link rel="stylesheet" href="css/query.css" />
   <link rel="stylesheet" href="css/tributes.css" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/dafa6859c8.js" crossorigin="anonymous">
