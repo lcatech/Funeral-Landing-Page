@@ -37,6 +37,9 @@
           136, Lagos Street, Ebute-Metta, Lagos <br>
           Thursday 20, February 2025
         </div>
+        <div class="button-rsvp">
+            <a href="rsvp.php" class="cta-button"> <i class="fa-solid fa-pen"></i> RSVP</a>
+        </div>
 
         <!-- <div class="funeral-text">
           <b>PRIVATE INTERMENT</b> </br> 
