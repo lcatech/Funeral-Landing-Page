@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Share Memory</title>
+    <title>Share Memory | Reverend Elijah O. Akinyemi</title>
 </head>
 <?php include 'nav/header.php'; ?>
 

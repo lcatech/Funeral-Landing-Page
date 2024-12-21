@@ -28,7 +28,7 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 <html lang="en">
 
 <head>
-    <title>Gallery</title>
+    <title>Gallery | Reverend Elijah O. Akinyemi</title>
     <style>
         /* Grid Layout */
         .gallery-container {

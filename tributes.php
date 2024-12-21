@@ -26,7 +26,7 @@ if ($randomIdQuery->num_rows > 0) {
 <head>
 
 
-    <title>Tributes | Rev Elijah O. Akinyemi</title>
+    <title>Tributes | Reverend Elijah O. Akinyemi</title>
 
 </head>
 <?php include 'nav/header.php'; ?>
