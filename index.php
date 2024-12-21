@@ -27,7 +27,8 @@
 
         <div class="funeral-text">
           <b>SERVICE OF SONGS</b> <br>
-        (Port Harcourt) <br>
+          Ciona Suites Banquet Hall <br>
+          19/21 Woji Road, Port Harcourt, Rivers State <br>
           Monday 17, February 2025
         </div>
 
