@@ -52,6 +52,8 @@ if (isset($_GET['success'])) {
 </head>
 
 <body>
+
+
     <div class="form-container">
         <h4>RSVP for Memorial Events</h4>
 
@@ -84,7 +86,8 @@ if (isset($_GET['success'])) {
             <button type="submit" class="button-rsvp">Submit RSVP</button>
         </form>
     </div>
+
 </body>
-<?php include 'footer.php'; ?>
+<?php include 'nav/footer.php'; ?>
 
 </html>
