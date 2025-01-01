@@ -278,6 +278,12 @@ nav {
   font-weight: bold;
 }
 
+.cta-section p {
+  margin-bottom: 2rem;
+  color: #ffefbc;
+  font-size: 1.4rem;
+}
+
 /*---------------- FOOTER SECTION ------------------*/
 
 .footer-container {
@@ -289,10 +295,15 @@ nav {
   padding-right: 6rem;
 }
 
+#form-section {
+  height: 100vh;
+}
+
 .form-container {
   max-width: 450px;
+  height: 78vh;
   width: 90%;
-  margin: 3rem auto; /* Add top margin for spacing */
+  margin: 3rem auto;
   position: relative;
   padding: 2rem;
   background: #e4c754;
@@ -776,6 +787,10 @@ button.delete-button:active {
   padding: 2rem 31rem;
 }
 
+#rsvp-form {
+  height: 20rem;
+}
+
 /* Tributes Section */
 .tributes-container {
   padding: 2rem 4rem;
@@ -866,6 +881,10 @@ p {
     display: flex;
     flex-direction: column;
     gap: 4rem;
+  }
+
+  .form-container {
+    height: 84vh;
   }
 }
 
@@ -1204,7 +1223,7 @@ button.button-rsvp {
   font-size: 1.2rem;
   font-weight: bold;
   border-radius: 5px;
-  background-color: #efbf04;
+  background-color: #796202;
   color: white;
   border: none;
   cursor: pointer;

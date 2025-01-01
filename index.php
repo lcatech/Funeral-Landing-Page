@@ -29,21 +29,21 @@
           <b>SERVICE OF SONGS</b> <br>
           Ciona Suites Banquet Hall <br>
           19/21 Woji Road, Port Harcourt, Rivers State <br>
-          Monday 17, February 2025 | 4pm
+          Monday 17, February 2025 | <span style="color: #fff">4pm</span>
         </div>
 
         <div class="funeral-text">
           <b>FUNERAL SERVICE </b> <br>
           Local Christian Assembly, Lagos <br>
           136, Lagos Street, Ebute-Metta, Lagos <br>
-          Thursday 20, February 2025 | 10am
+          Thursday 20, February 2025 | <span style="color: #fff"> 10am </span>
         </div>
- 
+
 
         <div class="cta-section">
-    <p>Join us in celebrating the life of our beloved. Please RSVP to confirm your attendance.</p>
-    <a href="rsvp.php" class="link-button">RSVP Now</a>
-</div>
+          <p class="cta-p">Join us in celebrating the life of our beloved. Please RSVP to confirm your attendance.</p>
+          <a href="rsvp.php" class="link-button">RSVP Now</a>
+        </div>
 
 
         <!-- <div class="funeral-text">

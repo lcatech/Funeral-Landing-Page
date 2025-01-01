@@ -5,8 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $mobile = $_POST['mobile'];
     $email = !empty($_POST['email']) ? $_POST['email'] : NULL;
-    $service_of_songs_guest_count = (int)$_POST['service_of_songs_guest_count'];
-    $main_funeral_guest_count = (int)$_POST['main_funeral_guest_count'];
+    $service_of_songs_guest_count = (int) $_POST['service_of_songs_guest_count'];
+    $main_funeral_guest_count = (int) $_POST['main_funeral_guest_count'];
 
     // Validate inputs
     if (empty($name) || empty($mobile) || $service_of_songs_guest_count < 0 || $main_funeral_guest_count < 0) {
@@ -48,45 +48,50 @@ if (isset($_GET['success'])) {
 <head>
     <title>RSVP | Funeral Events</title>
     <?php include 'nav/header.php'; ?>
-  
+
 </head>
 
 <body>
 
+    <div class="form-section">
 
-    <div class="form-container">
-        <h4>RSVP for Memorial Events</h4>
 
-        <?php if (!empty($error)): ?>
-            <p class="error"><?= htmlspecialchars($error) ?></p>
-        <?php endif; ?>
+        <div class="form-container">
+            <h4>RSVP for Memorial Events</h4>
 
-        <?php if (!empty($success)): ?>
-            <p class="success"><?= htmlspecialchars($success) ?></p>
-        <?php endif; ?>
+            <?php if (!empty($error)): ?>
+                <p class="error"><?= htmlspecialchars($error) ?></p>
+            <?php endif; ?>
 
-        <form method="POST" id="rsvp-form">
-            <fieldset>
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
+            <?php if (!empty($success)): ?>
+                <p class="success"><?= htmlspecialchars($success) ?></p>
+            <?php endif; ?>
 
-                <label for="mobile">Your Mobile Number</label>
-                <input type="tel" id="mobile" name="mobile" required>
+            <form method="POST" id="rsvp-form">
+                <fieldset>
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
 
-                <label for="email">Your Email (Optional)</label>
-                <input type="email" id="email" name="email">
+                    <label for="mobile">Your Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" required>
 
-                <label for="service_of_songs_guest_count">Number of Guests for Service of Songs (Including Yourself)</label>
-                <input type="number" id="service_of_songs_guest_count" name="service_of_songs_guest_count" min="0" value="0" required>
+                    <label for="email">Your Email (Optional)</label>
+                    <input type="email" id="email" name="email">
 
-                <label for="main_funeral_guest_count">Number of Guests for Main Funeral (Including Yourself)</label>
-                <input type="number" id="main_funeral_guest_count" name="main_funeral_guest_count" min="0" value="0" required>
-            </fieldset>
+                    <label for="service_of_songs_guest_count">Number of Guests for Service of Songs (Including
+                        Yourself)</label>
+                    <input type="number" id="service_of_songs_guest_count" name="service_of_songs_guest_count" min="0"
+                        value="0" required>
 
-            <button type="submit" class="button-rsvp">Submit RSVP</button>
-        </form>
+                    <label for="main_funeral_guest_count">Number of Guests for Main Funeral (Including Yourself)</label>
+                    <input type="number" id="main_funeral_guest_count" name="main_funeral_guest_count" min="0" value="0"
+                        required>
+                </fieldset>
+
+                <button type="submit" class="button-rsvp">Submit RSVP</button>
+            </form>
+        </div>
     </div>
-
 </body>
 <?php include 'nav/footer.php'; ?>
 
