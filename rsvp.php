@@ -50,14 +50,17 @@ if (isset($_GET['success'])) {
     <?php include 'nav/header.php'; ?>
 
 </head>
+<style>
 
+
+</style>
 <body>
 <div style="height: 30px;"></div> <!-- Adds vertical space -->
 
-    <div class="form-section">
+    <div class="form-section2">
 
 
-        <div class="form-container">
+        <div class="rsvp-form">
             <h4>RSVP for Memorial Events</h4>
 
             <?php if (!empty($error)): ?>
@@ -94,7 +97,7 @@ if (isset($_GET['success'])) {
         </div>
     </div>
 
-    <div style="height: 70px;"></div> <!-- Adds vertical space -->
+    <div style="height: 200px;"></div> <!-- Adds vertical space -->
 
 </body>
 <?php include 'nav/footer.php'; ?>

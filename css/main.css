@@ -297,7 +297,6 @@ nav {
 
 .form-container {
   max-width: 450px;
-  height: 60vh;
   width: 90%;
   margin: 3rem auto;
   position: relative;
@@ -783,9 +782,7 @@ button.delete-button:active {
   padding: 2rem 31rem;
 }
 
-#rsvp-form {
-  height: 20rem;
-}
+
 
 /* Tributes Section */
 .tributes-container {
@@ -880,7 +877,6 @@ p {
   }
 
   .form-container {
-    height: 60vh;
   }
 }
 
@@ -1229,4 +1225,160 @@ button.button-rsvp:hover {
 
 .link-button:hover {
   background-color: #d9a703;
+}
+
+
+/* Form Section Container */
+.form-section2 {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Form Container */
+.rsvp-form {
+  background-color: #e4c754;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  margin: 2rem auto;
+}
+
+/* Form Header */
+.rsvp-form h4 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Form Fields */
+#rsvp-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+#rsvp-form label {
+  display: block;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+#rsvp-form input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+#rsvp-form input:focus {
+  border-color: #796202;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(121, 98, 2, 0.1);
+}
+
+/* Number Input Specific Styles */
+#rsvp-form input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#rsvp-form input[type="number"]::-webkit-outer-spin-button,
+#rsvp-form input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Submit Button */
+.button-rsvp {
+  width: 100%;
+  padding: 14px 24px;
+  background-color: #796202;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.button-rsvp:hover {
+  background-color: #8f7503;
+}
+
+.button-rsvp:active {
+  transform: translateY(1px);
+}
+
+/* Success and Error Messages */
+.success,
+.error {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .rsvp-form {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .rsvp-form h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #rsvp-form input {
+    padding: 10px 14px;
+    margin-bottom: 1.25rem;
+  }
+
+  .button-rsvp {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rsvp-form {
+    padding: 1.25rem;
+  }
+
+  .form-section2 {
+    padding: 0 15px;
+  }
+
+  #rsvp-form label {
+    font-size: 0.95rem;
+  }
+
+  #rsvp-form input {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
 }
