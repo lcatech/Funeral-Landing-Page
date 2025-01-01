@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link href="css/main.css" rel="stylesheet" />
     <title>Share Memory | Reverend Elijah O. Akinyemi</title>
 </head>
 <?php include 'nav/header.php'; ?>
 
 <body>
-    
+
     <section class="form-container">
-        <form id="tribute-form" action="submit_tribute.php" method="post" enctype="multipart/form-data" onsubmit="return previewTribute(event)">
+        <form id="tribute-form" action="submit_tribute.php" method="post" enctype="multipart/form-data"
+            onsubmit="return previewTribute(event)">
             <h3>Submit Your Tribute</h3>
             <fieldset>
                 <input type="text" name="name" placeholder="Your full name" required>
@@ -39,12 +42,15 @@
                 <button type="submit">Preview Tribute</button>
             </fieldset>
         </form>
-        
+
         <div id="preview-section" style="display: none; margin-top: 20px;">
             <h3>Preview Your Tribute</h3>
             <div id="preview-content"></div>
-            <button onclick="confirmSubmission()">Confirm Submission</button>
-            <button onclick="editSubmission()">Edit Tribute</button>
+            <div id="preview-buttons">
+
+                <button onclick="editSubmission()">Edit Tribute</button>
+                <button onclick="confirmSubmission()">Confirm Submission</button>
+            </div>
         </div>
     </section>
 
@@ -66,7 +72,7 @@
             let imagePreview = '';
             if (formData.get('image').name) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     imagePreview = `<img src="${e.target.result}" alt="Uploaded Image" style="max-width: 200px;">`;
                     updatePreview();
                 };
@@ -98,7 +104,7 @@
             document.getElementById('preview-section').style.display = 'none';
         }
     </script>
-    
+
 </body>
 
 <?php include 'footer.php'; ?>

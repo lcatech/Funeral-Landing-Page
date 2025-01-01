@@ -31,7 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link href="css/main.css" rel="stylesheet" />
     <title>Your Submitted Tribute</title>
 </head>
 <?php include 'nav/header.php'; ?>
@@ -47,13 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
             <p><strong>Relationship:</strong> <?= htmlspecialchars($tribute['relationship']) ?></p>
             <p><strong>Message:</strong> <?= nl2br(htmlspecialchars($tribute['message'])) ?></p>
             <?php if ($tribute['image']): ?>
-                <img src="<?= htmlspecialchars($tribute['image']) ?>" alt="Uploaded Image" style="max-width: 200px; border-radius: 8px;">
+                <img src="<?= htmlspecialchars($tribute['image']) ?>" alt="Uploaded Image"
+                    style="max-width: 200px; border-radius: 8px;">
             <?php endif; ?>
         </div>
         <form method="post">
             <button name="delete" style="background-color: red; color: white;">Delete Tribute</button>
         </form>
-        <a href="index.php" class="button" style="margin-top: 20px;">Return to Home</a> |         <a href="tributes.php" class="button" style="margin-top: 20px;">View Tributes</a>
+        <a href="index.php" class="button" style="margin-top: 20px;">Return to Home</a> | <a href="tributes.php"
+            class="button" style="margin-top: 20px;">View Tributes</a>
 
     </section>
 
