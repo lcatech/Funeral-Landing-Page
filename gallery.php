@@ -1,5 +1,5 @@
 <?php
-$galleryDir = 'images/Grid Images/'; // Path to the gallery folder
+$galleryDir = 'images/gallery/'; // Path to the gallery folder
 $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Allowed image types
 
 // Scan the directory for files
