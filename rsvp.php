@@ -52,6 +52,7 @@ if (isset($_GET['success'])) {
 </head>
 
 <body>
+<div style="height: 30px;"></div> <!-- Adds vertical space -->
 
     <div class="form-section">
 
@@ -92,6 +93,9 @@ if (isset($_GET['success'])) {
             </form>
         </div>
     </div>
+
+    <div style="height: 70px;"></div> <!-- Adds vertical space -->
+
 </body>
 <?php include 'nav/footer.php'; ?>
 

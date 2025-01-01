@@ -46,7 +46,7 @@ nav {
   height: 1rem;
   top: 0;
   z-index: 100;
-  margin-left: 8rem;
+  margin-left: 10rem;
   font-family: Montserrat;
   margin-bottom: 0rem; /* Add space below the navigation menu */
 }
@@ -297,7 +297,7 @@ nav {
 
 .form-container {
   max-width: 450px;
-  height: 72vh;
+  height: 60vh;
   width: 90%;
   margin: 3rem auto;
   position: relative;
@@ -880,7 +880,7 @@ p {
   }
 
   .form-container {
-    height: 84vh;
+    height: 60vh;
   }
 }
 
@@ -1151,39 +1151,7 @@ p {
 }
 
 /* RSVP Form Styling */
-.form-container2 {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
 
-.form-container2 h1 {
-  font-size: 2.4rem;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.form-container2 p.error {
-  color: #d9534f;
-  background: rgba(217, 83, 79, 0.1);
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.form-container2 p.success {
-  color: #5cb85c;
-  background: rgba(92, 184, 92, 0.1);
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  margin-bottom: 20px;
-}
 
 form fieldset {
   border: none;

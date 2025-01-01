@@ -8,6 +8,8 @@
 <?php include 'nav/header.php'; ?>
 
 <body>
+<div style="height: 30px;"></div> <!-- Adds vertical space -->
+
 
     <section class="form-container">
         <form id="tribute-form" action="submit_tribute.php" method="post" enctype="multipart/form-data"
@@ -104,9 +106,9 @@
             document.getElementById('preview-section').style.display = 'none';
         }
     </script>
-
+<div style="height: 70px;"></div> <!-- Adds vertical space -->
 </body>
 
-<?php include 'footer.php'; ?>
+<?php include 'nav/footer.php'; ?>
 
 </html>
