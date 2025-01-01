@@ -295,13 +295,9 @@ nav {
   padding-right: 6rem;
 }
 
-#form-section {
-  height: 100vh;
-}
-
 .form-container {
   max-width: 450px;
-  height: 78vh;
+  height: 72vh;
   width: 90%;
   margin: 3rem auto;
   position: relative;
