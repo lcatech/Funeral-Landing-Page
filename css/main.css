@@ -875,9 +875,6 @@ p {
     flex-direction: column;
     gap: 4rem;
   }
-
-  .form-container {
-  }
 }
 
 @media (max-width: 63em) {

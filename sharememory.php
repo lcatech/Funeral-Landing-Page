@@ -8,7 +8,7 @@
 <?php include 'nav/header.php'; ?>
 
 <body>
-<div style="height: 30px;"></div> <!-- Adds vertical space -->
+<div style="height: 10px;"></div> <!-- Adds vertical space -->
 
 
     <section class="form-container">
@@ -106,8 +106,8 @@
             document.getElementById('preview-section').style.display = 'none';
         }
     </script>
-<div style="height: 70px;"></div> <!-- Adds vertical space -->
-</body>
+<!-- <div style="height: 10px;"></div> <!-- Adds vertical space -->
+ --></body>
 
 <?php include 'nav/footer.php'; ?>
 

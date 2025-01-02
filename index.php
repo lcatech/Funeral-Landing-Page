@@ -54,8 +54,8 @@
       </div>
     </div>
   </section>
-  <div style="height: 30px;"></div> <!-- Adds vertical space -->
-
+<!--   <div style="height: 30px;"></div> <!-- Adds vertical space -->
+ -->
 
 </body>
 

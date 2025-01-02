@@ -87,9 +87,11 @@ font-size: 4rem;
             <p>No submitted tributes yet.</p>
         <?php endif; ?>
     </div>
-    <?php include 'nav/footer.php'; ?>
+    <div style="height: 20px;"></div> <!-- Adds vertical space -->
+
 
 </body>
+<?php include 'nav/footer.php'; ?>
 
 
 </html>
