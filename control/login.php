@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $admin = $result->fetch_assoc();
 
     // Check if admin exists and password matches
-    if ($admin && $password === $admin['password']) {
+    if ($admin && password_verify($password, $admin['password'])) {
         // Store session data
         $_SESSION['logged_in'] = true;
         $_SESSION['admin_id'] = $admin['id'];
