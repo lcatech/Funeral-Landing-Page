@@ -1,7 +1,8 @@
 <?php
+// Updated config.php
 return [
-    'gallery_base' => 'images/gallery/',
-    'upload_categories' => [
+    'pending_dir' => 'images/gallery/pending/',
+    'categories' => [
         'church' => 'images/gallery/church/',
         'personal' => 'images/gallery/personal/',
         'family' => 'images/gallery/outfamilyreach/',

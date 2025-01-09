@@ -3,11 +3,17 @@ session_start();
 $config = require 'config.php';
 $error = '';
 
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: login.php');
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['username'] === $config['admin_user'] && 
         $_POST['password'] === $config['admin_pass']) {
         $_SESSION['admin'] = true;
-        header('Location: upload.php');
+        header('Location: admin.php');
         exit;
     }
     $error = 'Invalid credentials';

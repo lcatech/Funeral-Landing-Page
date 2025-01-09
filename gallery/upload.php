@@ -1,13 +1,9 @@
 <?php
-require 'auth.php';
-requireLogin();
 $config = require 'config.php';
 
-// Create directories if they don't exist
-foreach ($config['upload_categories'] as $dir) {
-    if (!file_exists($dir)) {
-        mkdir($dir, 0755, true);
-    }
+// Ensure pending directory exists
+if (!file_exists($config['pending_dir'])) {
+    mkdir($config['pending_dir'], 0755, true);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,11 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $category = $_POST['category'];
-        if (!isset($config['upload_categories'][$category])) {
+        if (!isset($config['categories'][$category])) {
             throw new Exception('Invalid category');
         }
 
-        $uploadDir = $config['upload_categories'][$category];
         $uploadedFiles = [];
         $errors = [];
 
@@ -36,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'size' => $_FILES['images']['size'][$key],
             ];
 
-            // Validation
             if ($file['error'] !== UPLOAD_ERR_OK) {
                 $errors[] = "Upload error for {$file['name']}";
                 continue;
@@ -52,10 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 continue;
             }
 
-            // Generate safe filename
             $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-            $filename = date('Y-m-d-H-i-s') . '_' . uniqid() . '.' . $extension;
-            $destination = $uploadDir . $filename;
+            $filename = $category . '_' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.' . $extension;
+            $destination = $config['pending_dir'] . $filename;
 
             if (move_uploaded_file($file['tmp_name'], $destination)) {
                 $uploadedFiles[] = $filename;
@@ -67,7 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode([
             'success' => count($uploadedFiles) > 0,
             'uploaded' => $uploadedFiles,
-            'errors' => $errors
+            'errors' => $errors,
+            'message' => 'Images uploaded and pending approval'
         ]);
         exit;
 
@@ -80,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,16 +83,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         .container { max-width: 800px; margin: 0 auto; }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
         .upload-form {
             background: #f5f5f5;
             padding: 20px;
             border-radius: 8px;
+            margin-top: 20px;
         }
         .preview-container {
             display: grid;
@@ -127,20 +117,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin: 10px 0;
             width: 200px;
         }
+        .notice {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h2>Upload Gallery Images</h2>
-            <a href="login.php?logout=1" class="button">Logout</a>
+        <h2>Upload Gallery Images</h2>
+        <div class="notice">
+            Images will be reviewed by an administrator before being published to the gallery.
         </div>
         
         <div class="upload-form">
             <form id="upload-form" enctype="multipart/form-data">
                 <select name="category" class="category-select" required>
                     <option value="">Select Category</option>
-                    <?php foreach (array_keys($config['upload_categories']) as $category): ?>
+                    <?php foreach (array_keys($config['categories']) as $category): ?>
                         <option value="<?= htmlspecialchars($category) ?>">
                             <?= ucfirst(htmlspecialchars($category)) ?>
                         </option>
@@ -204,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 const result = await response.json();
                 
                 if (result.success) {
-                    alert('Images uploaded successfully!');
+                    alert('Images uploaded successfully and are pending approval!');
                     uploadForm.reset();
                     previewContainer.innerHTML = '';
                 } else {
