@@ -67,7 +67,8 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 
 <head>
     <title>Gallery | Reverend Elijah O. Akinyemi</title>
-    <style>
+
+        <style>
   /* Grid Layout */
   .gallery-container {
             max-width: 1300px;
@@ -295,15 +296,36 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
             margin-bottom: 2rem;
         }
     </style>
+
+    
 </head>
 
 <body>
     <div class="gallery-container">
         <h1 style="color: #d1a204; font-size: 6rem; font-family: Sofia; margin-bottom: 3rem;">Gallery</h1>
 
+<!-- Add Upload Button -->
+<div class="upload-button-container" style="text-align: center; margin-bottom: 2rem;">
+        <a href="media/upload.php" class="upload-button" style="
+            display: inline-block;
+            background: #efbf04;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: 'Sofia', sans-serif;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        ">
+            Share Your Pictures
+        </a>
+    </div>
+
+        
         <!-- Filter Dropdown -->
         <div class="filter-container">
-            <form method="GET" action="gallery.php" class="styled-select">
+            <form method="GET" action="gallery2.php" class="styled-select">
                 <select name="filter" onchange="this.form.submit()">
                     <option value="all" <?= $selectedFolder === 'all' ? 'selected' : '' ?>>All</option>
                     <?php foreach ($subfolders as $subfolder): ?>

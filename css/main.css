@@ -1379,3 +1379,28 @@ button.button-rsvp:hover {
     padding: 10px 12px;
   }
 }
+
+/* Add this to your existing style section */
+.upload-button-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.upload-button {
+  display: inline-block;
+  background: #efbf04;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: 'Sofia', sans-serif;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-button:hover {
+  background: #d1a204;
+  text-decoration: none;
+  color: white;
+}
