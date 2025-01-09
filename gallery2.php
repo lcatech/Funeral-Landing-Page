@@ -63,7 +63,7 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 ?>
 
 
-<?php include 'nav/header.php'; ?>
+<?php include '/nav/header.php'; ?>
 
 <head>
     <title>Gallery | Reverend Elijah O. Akinyemi</title>
@@ -306,7 +306,7 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 
 <!-- Add Upload Button -->
 <div class="upload-button-container" style="text-align: center; margin-bottom: 2rem;">
-        <a href="media/upload.php" class="upload-button" style="
+        <a href="/media/upload.php" class="upload-button" style="
             display: inline-block;
             background: #efbf04;
             color: white;

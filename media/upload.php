@@ -1,3 +1,5 @@
+
+
 <?php
 $config = require 'config.php';
 
@@ -75,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php include '../nav/header.php'; ?>
+<?php include "../nav/header.php"; ?>
 <head>
     <meta charset="UTF-8">
     <title>Upload Images</title>

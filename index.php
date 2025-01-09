@@ -1,4 +1,4 @@
-<?php include 'nav/header.php'; ?>
+<?php include $base_url . "nav/header.php"; ?>
 
 <body>
 
