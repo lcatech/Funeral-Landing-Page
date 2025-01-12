@@ -1,4 +1,4 @@
-<?php include $base_url . "nav/header.php"; ?>
+<?php include 'nav/header.php'; ?>
 
 <body>
 
@@ -12,6 +12,12 @@
           Oluranti Akinyemi
         </h2>
         <h3 class="hero-date"> 15 Jun 1956 - 29 Nov 2024 </h3>
+
+        <div class="rsvp-section">
+          <p class="cta-p"></p>
+          <p class="cta-p"></p>
+          <a href="tributes.php" class="rsvp-cta-button">Submit Tributes</a>
+        </div>
       </div>
 
       <div class="hero-image">
@@ -102,11 +108,12 @@
         </div>
 
 
-        <div class="cta-section">
-          <p class="cta-p">Join us in celebrating the life of our beloved. Please RSVP to confirm your attendance.</p>
-          <a href="rsvp.php" class="link-button">RSVP Now</a>
-        </div>
-
+       <div class="rsvp-section">
+    <div class="rsvp-cta-container">
+        <p class="rsvp-cta-text">Join us in celebrating the life of our beloved. Please RSVP to confirm your attendance.</p>
+        <a href="rsvp.php" class="rsvp-cta-button">RSVP Now</a>
+    </div>
+</div>
 
         <!-- <div class="funeral-text">
           <b>PRIVATE INTERMENT</b> </br> 
@@ -116,8 +123,7 @@
       </div>
     </div>
   </section>
-<!--   <div style="height: 30px;"></div> <!-- Adds vertical space -->
- -->
+
 
 </body>
 
@@ -153,7 +159,6 @@ function updateCountdown() {
 // Start the countdown when the page loads
 document.addEventListener('DOMContentLoaded', updateCountdown);
 </script>
-Improve
 
 <?php include 'nav/footer.php'; ?>
 

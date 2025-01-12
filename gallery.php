@@ -1,4 +1,6 @@
 <?php
+session_start(); // Start the session at the beginning
+
 $galleryDir = 'images/gallery/'; // Path to the gallery folder
 $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Allowed image types
 
@@ -7,6 +9,11 @@ $subfolders = array_filter(glob($galleryDir . '*'), 'is_dir');
 
 // Get the selected folder from the filter (default to 'all')
 $selectedFolder = isset($_GET['filter']) ? $_GET['filter'] : 'all';
+
+// Generate a new random seed if it doesn't exist in the session
+if (!isset($_SESSION['gallery_seed'])) {
+    $_SESSION['gallery_seed'] = rand(1, 1000000);
+}
 
 // Prepare the list of images based on the selected filter
 $images = [];
@@ -37,6 +44,11 @@ if ($selectedFolder === 'all') {
     }
 }
 
+// Use the session seed to randomize images consistently within the session
+srand($_SESSION['gallery_seed']);
+shuffle($images);
+srand(); // Reset the random seed to not affect other random operations
+
 // Re-index array for easier handling
 $images = array_values($images);
 
@@ -50,40 +62,33 @@ $startIndex = ($page - 1) * $itemsPerPage;
 $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 ?>
 
+
 <?php include 'nav/header.php'; ?>
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <title>Gallery | Reverend Elijah O. Akinyemi</title>
-    <style>
 
-        /* Grid Layout */
-        .gallery-container {
+        <style>
+  /* Grid Layout */
+  .gallery-container {
             max-width: 1300px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 2fr);
-            /* Customizable grid: Set max 4 items per row */
             gap: 2.2rem;
         }
-
 
         .gallery-item {
             position: relative;
             width: 100%;
             padding-top: 100%;
-            /* Aspect ratio 1:1 (square) */
             overflow: hidden;
             border-radius: 1.2rem;
-            /* Ensures images don't overflow */
         }
-
 
         .gallery-item img {
             position: absolute;
@@ -92,19 +97,15 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Ensures consistent sizing */
             object-position: center;
-            /* Centers the image within the grid cell */
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: transform 0.6s;
         }
 
-
         .gallery-item img:hover {
             transform: scale(1.05);
-            /* Slight zoom effect on hover */
         }
 
         /* Modal Styling */
@@ -119,21 +120,37 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
             z-index: 1000;
             justify-content: center;
             align-items: center;
+            touch-action: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         .modal img {
-            max-width: 90%;
-            max-height: 80%;
+            max-width: 100%;
+            max-height: 80vh;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-
-        .modal:target {
-            display: flex;
+        .modal img.loaded {
+            opacity: 1;
         }
-
 
         .modal-close {
             position: absolute;
@@ -146,13 +163,12 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
             font-size: 20px;
             text-decoration: none;
             cursor: pointer;
+            z-index: 1001;
         }
-
 
         .modal-close:hover {
             background: #f4f4f4;
         }
-
 
         /* Navigation Arrows */
         .modal-nav {
@@ -163,23 +179,23 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
             color: white;
             cursor: pointer;
             user-select: none;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 50%;
         }
-
 
         .modal-prev {
             left: 20px;
         }
 
-
         .modal-next {
             right: 20px;
         }
 
-
         .modal-nav:hover {
             color: #d1a204;
         }
-
 
         /* Pagination */
         .pagination {
@@ -280,12 +296,33 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
             margin-bottom: 2rem;
         }
     </style>
+
+    
 </head>
 
 <body>
     <div class="gallery-container">
         <h1 style="color: #d1a204; font-size: 6rem; font-family: Sofia; margin-bottom: 3rem;">Gallery</h1>
 
+<!-- Add Upload Button -->
+<div class="upload-button-container" style="text-align: center; margin-bottom: 2rem;">
+        <a href="media/upload.php" class="upload-button" style="
+            display: inline-block;
+            background: #efbf04;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: 'Sofia', sans-serif;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        ">
+            Share Your Pictures
+        </a>
+    </div>
+
+        
         <!-- Filter Dropdown -->
         <div class="filter-container">
             <form method="GET" action="gallery.php" class="styled-select">
@@ -314,11 +351,14 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
         <!-- Modal Viewer -->
         <?php foreach ($paginatedImages as $index => $image): ?>
             <div id="modal-<?= $startIndex + $index ?>" class="modal">
-                <a href="#" class="modal-close">&times;</a>
-                <a href="#modal-<?= $startIndex + ($index - 1 + $itemsPerPage) % $itemsPerPage ?>"
-                    class="modal-nav modal-prev">&#8249;</a>
-                <img src="<?= $image ?>" alt="Full Image">
-                <a href="#modal-<?= $startIndex + ($index + 1) % $itemsPerPage ?>" class="modal-nav modal-next">&#8250;</a>
+                <div class="modal-content">
+                    <a href="#" class="modal-close">&times;</a>
+                    <a href="#modal-<?= $startIndex + (($index - 1 + count($paginatedImages)) % count($paginatedImages)) ?>"
+                        class="modal-nav modal-prev">&#8249;</a>
+                    <img src="<?= $image ?>" alt="Full Image">
+                    <a href="#modal-<?= $startIndex + (($index + 1) % count($paginatedImages)) ?>"
+                        class="modal-nav modal-next">&#8250;</a>
+                </div>
             </div>
         <?php endforeach; ?>
 
@@ -331,6 +371,114 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
             <?php endfor; ?>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            const modalViewer = {
+                init() {
+                    this.bindEvents();
+                    this.handleInitialHash();
+                },
+
+                handleInitialHash() {
+                    if (location.hash) {
+                        const modalId = location.hash.slice(1);
+                        const modal = document.getElementById(modalId);
+                        if (modal) {
+                            modal.classList.add('active');
+                            const img = modal.querySelector('img');
+                            if (img) {
+                                img.classList.remove('loaded');
+                                // Force browser to load image
+                                img.src = img.src;
+                            }
+                        }
+                    }
+                },
+
+                bindEvents() {
+                    // Keyboard navigation
+                    document.addEventListener('keydown', (e) => {
+                        const activeModal = document.querySelector('.modal.active');
+                        if (!activeModal) return;
+
+                        switch(e.key) {
+                            case 'ArrowLeft':
+                                e.preventDefault();
+                                activeModal.querySelector('.modal-prev').click();
+                                break;
+                            case 'ArrowRight':
+                                e.preventDefault();
+                                activeModal.querySelector('.modal-next').click();
+                                break;
+                            case 'Escape':
+                                e.preventDefault();
+                                activeModal.querySelector('.modal-close').click();
+                                break;
+                        }
+                    });
+
+                    // Touch events for swipe
+                    document.querySelectorAll('.modal').forEach(modal => {
+                        modal.addEventListener('touchstart', (e) => {
+                            touchStartX = e.changedTouches[0].screenX;
+                        }, false);
+
+                        modal.addEventListener('touchend', (e) => {
+                            touchEndX = e.changedTouches[0].screenX;
+                            this.handleSwipe(modal);
+                        }, false);
+
+                        // Prevent default touch behaviors
+                        modal.addEventListener('touchmove', (e) => {
+                            e.preventDefault();
+                        }, { passive: false });
+
+                        // Image loading handler
+                        const modalImg = modal.querySelector('img');
+                        modalImg.addEventListener('load', () => {
+                            modalImg.classList.add('loaded');
+                        });
+                    });
+                },
+
+                handleSwipe(modal) {
+                    const swipeThreshold = 50;
+                    const swipeDistance = touchEndX - touchStartX;
+
+                    if (Math.abs(swipeDistance) >= swipeThreshold) {
+                        if (swipeDistance > 0) {
+                            modal.querySelector('.modal-prev').click();
+                        } else {
+                            modal.querySelector('.modal-next').click();
+                        }
+                    }
+                }
+            };
+
+            // Initialize the modal viewer
+            modalViewer.init();
+
+            // Handle modal transitions
+            window.addEventListener('hashchange', function() {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    if (modal.id === location.hash.slice(1)) {
+                        modal.classList.add('active');
+                        const img = modal.querySelector('img');
+                        img.classList.remove('loaded');
+                        // Force browser to load image
+                        img.src = img.src;
+                    } else {
+                        modal.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 <?php include 'nav/footer.php'; ?>
 

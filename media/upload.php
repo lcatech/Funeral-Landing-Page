@@ -1,24 +1,20 @@
-
-
 <?php
+// PHP code remains the same
 $config = require 'config.php';
 
-// Ensure pending directory exists
 if (!file_exists($config['pending_dir'])) {
     mkdir($config['pending_dir'], 0755, true);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Content-Type: application/json');
+    // Prevent any HTML output for AJAX requests
+    if (!headers_sent()) {
+        header('Content-Type: application/json');
+    }
     
     try {
-        if (!isset($_FILES['images']) || !isset($_POST['category'])) {
-            throw new Exception('Missing required fields');
-        }
-
-        $category = $_POST['category'];
-        if (!isset($config['categories'][$category])) {
-            throw new Exception('Invalid category');
+        if (!isset($_FILES['images'])) {
+            throw new Exception('No images uploaded');
         }
 
         $uploadedFiles = [];
@@ -49,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-            $filename = $category . '_' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.' . $extension;
+            $filename = date('Y-m-d-H-i-s') . '_' . uniqid() . '.' . $extension;
             $destination = $config['pending_dir'] . $filename;
 
             if (move_uploaded_file($file['tmp_name'], $destination)) {
@@ -75,82 +71,198 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
-?>
 
-<?php include "../nav/header.php"; ?>
+// Only output HTML if not an AJAX request
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    include "../nav/header.php";
+}
+?>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Images</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .container { max-width: 800px; margin: 0 auto; }
-        .upload-form {
-            background: #f5f5f5;
+        /* Scoped styles for upload page */
+        .image-upload-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .image-upload-title {
+            font-family: "Sofia", cursive;
+            color: #efbf04;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-upload-notice {
+            background: rgba(33, 28, 12, 0.8);
+            color: #fad14b;
             padding: 20px;
             border-radius: 8px;
-            margin-top: 20px;
+            margin-bottom: 14px;
+            text-align: center;
+            border: 1px solid rgba(239, 191, 4, 0.2);
+            font-size: 18px;
+            font-weight: 500;
         }
-        .preview-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-            margin: 20px 0;
+
+        .image-upload-form {
+            background: rgba(33, 28, 12, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(239, 191, 4, 0.2);
+            text-align: center;
         }
-        .preview-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 4px;
+
+        .image-upload-input {
+            display: none;
         }
-        .button {
+
+        .image-upload-area {
+            border: 2px dashed #efbf04;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(239, 191, 4, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .image-upload-area.drag-over {
+            background: rgba(239, 191, 4, 0.1);
+            border-color: #fad14b;
+        }
+
+        .image-upload-area svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 15px;
+            color: #efbf04;
+        }
+
+        .image-upload-area p {
+            color: #fad14b;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .image-upload-button {
             background: #efbf04;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
             margin: 5px;
+            display: inline-block;
         }
-        .button:hover { background: #d1a204; }
-        #file-input { display: none; }
-        .category-select {
-            padding: 8px;
-            margin: 10px 0;
-            width: 200px;
+
+        .image-upload-button:hover {
+            background: #d1a204;
         }
-        .notice {
-            background: #e8f5e9;
+
+        .image-preview-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
             padding: 15px;
+            background: rgba(33, 28, 12, 0.6);
+            border-radius: 8px;
+            min-height: 100px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        /* Styling the scrollbar */
+        .image-preview-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .image-preview-container::-webkit-scrollbar-track {
+            background: rgba(33, 28, 12, 0.4);
             border-radius: 4px;
-            margin-bottom: 20px;
+        }
+
+        .image-preview-container::-webkit-scrollbar-thumb {
+            background: #efbf04;
+            border-radius: 4px;
+        }
+
+        .image-preview-container::-webkit-scrollbar-thumb:hover {
+            background: #d1a204;
+        }
+
+        .image-preview-item {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(239, 191, 4, 0.3);
+        }
+
+        .image-preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-preview-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .image-upload-container {
+                padding: 10px;
+            }
+
+            .image-preview-item {
+                width: 120px;
+                height: 120px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Upload Gallery Images</h2>
-        <div class="notice">
+    <div class="image-upload-container">
+        <h2 class="image-upload-title">Upload Gallery Images</h2>
+        
+        <div class="image-upload-notice">
             Images will be reviewed by an administrator before being published to the gallery.
         </div>
         
-        <div class="upload-form">
+        <div class="image-upload-form">
             <form id="upload-form" enctype="multipart/form-data">
-                <select name="category" class="category-select" required>
-                    <option value="">Select Category</option>
-                    <?php foreach (array_keys($config['categories']) as $category): ?>
-                        <option value="<?= htmlspecialchars($category) ?>">
-                            <?= ucfirst(htmlspecialchars($category)) ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-                <br>
-                <input type="file" id="file-input" name="images[]" multiple accept="image/*">
-                <button type="button" class="button" onclick="document.getElementById('file-input').click()">
-                    Select Images
-                </button>
-                <button type="submit" class="button">Upload Images</button>
+                <input type="file" id="file-input" class="image-upload-input" name="images[]" multiple accept="image/*">
+                <div class="image-upload-area" id="upload-area">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <p>Drag and drop your images here</p>
+                    <p>or</p>
+                    <button type="button" class="image-upload-button" onclick="document.getElementById('file-input').click()">
+                        Browse Files
+                    </button>
+                </div>
+                <div class="image-preview-container" id="preview-container"></div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button type="submit" class="image-upload-button" id="upload-button" style="display: none;">
+                        Upload Images
+                    </button>
+                </div>
             </form>
-            <div class="preview-container" id="preview-container"></div>
         </div>
     </div>
 
@@ -159,33 +271,87 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         const previewContainer = document.getElementById('preview-container');
         const uploadForm = document.getElementById('upload-form');
 
-        fileInput.addEventListener('change', function(e) {
-            previewContainer.innerHTML = '';
-            const files = e.target.files;
+        const uploadButton = document.getElementById('upload-button');
+        
+        const uploadArea = document.getElementById('upload-area');
+        
+        // Drag and drop handlers
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, preventDefaults, false);
+        });
 
-            for (let file of files) {
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            uploadArea.classList.add('drag-over');
+        }
+
+        function unhighlight(e) {
+            uploadArea.classList.remove('drag-over');
+        }
+
+        // Handle dropped files
+        uploadArea.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            // Create a DataTransfer object to set files to the input
+            const dataTransfer = new DataTransfer();
+            Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    dataTransfer.items.add(file);
+                }
+            });
+            
+            // Set the files to the input element
+            fileInput.files = dataTransfer.files;
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            if (files.length > 0) {
+                uploadButton.style.display = 'inline-block';
+            }
+            
+            previewContainer.innerHTML = '';
+            Array.from(files).forEach(file => {
                 if (file.type.startsWith('image/')) {
                     const reader = new FileReader();
                     reader.onload = function(e) {
+                        const previewItem = document.createElement('div');
+                        previewItem.className = 'image-preview-item';
+                        
                         const img = document.createElement('img');
                         img.src = e.target.result;
-                        img.className = 'preview-image';
-                        previewContainer.appendChild(img);
+                        previewItem.appendChild(img);
+                        previewContainer.appendChild(previewItem);
                     }
                     reader.readAsDataURL(file);
                 }
-            }
+            });
+        }
+        
+        fileInput.addEventListener('change', function(e) {
+            handleFiles(this.files);
         });
 
         uploadForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            if (!uploadForm.category.value) {
-                alert('Please select a category');
-                return;
-            }
 
-            if (fileInput.files.length === 0) {
+            if (!fileInput.files || fileInput.files.length === 0) {
                 alert('Please select at least one image to upload');
                 return;
             }
@@ -204,6 +370,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     alert('Images uploaded successfully and are pending approval!');
                     uploadForm.reset();
                     previewContainer.innerHTML = '';
+                    uploadButton.style.display = 'none';
                 } else {
                     throw new Error(result.message || 'Upload failed');
                 }
@@ -213,5 +380,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         });
     </script>
+
+    <?php include '../nav/footer.php'; ?>
+
 </body>
 </html>

@@ -11,6 +11,6 @@ return [
     ],
     'allowed_types' => ['image/jpeg', 'image/png', 'image/gif'],
     'max_size' => 5 * 1024 * 1024,  // 5MB
-    'admin_user' => 'admin',         // Change this!
-    'admin_pass' => 'admin123'       // Change this!
+    'admin_user' => 'it-man',         // Change this!
+    'admin_pass' => '7ThUndEr$2024!!!@'       // Change this!
 ];

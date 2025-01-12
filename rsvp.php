@@ -41,65 +41,56 @@ if (isset($_GET['success'])) {
 }
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
+<?php include 'nav/header.php'; ?>
 
 <head>
     <title>RSVP | Funeral Events</title>
-    <?php include 'nav/header.php'; ?>
-
 </head>
-<style>
 
-
-</style>
 <body>
-<div style="height: 10px;"></div> <!-- Adds vertical space -->
+    <section class="form-container">
+        <?php if (!empty($error)): ?>
+            <div class="error"><?= htmlspecialchars($error) ?></div>
+        <?php endif; ?>
+        
+        <?php if (!empty($success)): ?>
+            <div class="success"><?= htmlspecialchars($success) ?></div>
+        <?php endif; ?>
 
-    <div class="form-section2">
-
-
-        <div class="rsvp-form">
-            <h4>RSVP for Memorial Events</h4>
-
-            <?php if (!empty($error)): ?>
-                <p class="error"><?= htmlspecialchars($error) ?></p>
-            <?php endif; ?>
-
-            <?php if (!empty($success)): ?>
-                <p class="success"><?= htmlspecialchars($success) ?></p>
-            <?php endif; ?>
-
-            <form method="POST" id="rsvp-form">
-                <fieldset>
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
-
-                    <label for="mobile">Your Mobile Number</label>
-                    <input type="tel" id="mobile" name="mobile" required>
-
-                    <label for="email">Your Email (Optional)</label>
-                    <input type="email" id="email" name="email">
-
-                    <label for="service_of_songs_guest_count">Number of Guests for Service of Songs (Including
-                        Yourself)</label>
-                    <input type="number" id="service_of_songs_guest_count" name="service_of_songs_guest_count" min="0"
-                        value="0" required>
-
-                    <label for="main_funeral_guest_count">Number of Guests for Main Funeral (Including Yourself)</label>
-                    <input type="number" id="main_funeral_guest_count" name="main_funeral_guest_count" min="0" value="0"
-                        required>
-                </fieldset>
-
-                <button type="submit" class="button-rsvp">Submit RSVP</button>
-            </form>
-        </div>
-    </div>
-
-    <div style="height: 20px;"></div> <!-- Adds vertical space -->
-
+        <h3>RSVP for Memorial Events</h3>
+        <form method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <input type="text" name="name" placeholder="Your full name" required>
+            </fieldset>
+            
+            <fieldset>
+                <input type="tel" name="mobile" placeholder="Your mobile number" required>
+            </fieldset>
+            
+            <fieldset>
+                <input type="email" name="email" placeholder="Your email (Optional)">
+            </fieldset>
+            
+            <fieldset>
+                <label style="color: #666; font-size: 1.4rem; margin-bottom: 0.8rem; display: block;">
+                    Number of Guests for Service of Songs (Including Yourself)
+                </label>
+                <input type="number" name="service_of_songs_guest_count" min="0" value="0" required>
+            </fieldset>
+            
+            <fieldset>
+                <label style="color: #666; font-size: 1.4rem; margin-bottom: 0.8rem; display: block;">
+                    Number of Guests for Main Funeral (Including Yourself)
+                </label>
+                <input type="number" name="main_funeral_guest_count" min="0" value="0" required>
+            </fieldset>
+            
+            <fieldset>
+                <button type="submit">Submit RSVP</button>
+            </fieldset>
+        </form>
+    </section>
+    
+    <?php include 'nav/footer.php'; ?>
 </body>
-<?php include 'nav/footer.php'; ?>
-
 </html>

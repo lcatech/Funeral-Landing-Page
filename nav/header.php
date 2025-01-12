@@ -16,8 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet" />
     <!-- Stylesheets -->
-    <link href="/css/main.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/gallery.css" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/gallery.css" />
     <!--<link rel="stylesheet" href="css/tributes.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Font Awesome -->
@@ -46,4 +46,4 @@
         </button>
     </header>
     <!-- Custom Script -->
-    <script defer src="/js/script.js"></script>
+    <script defer src="js/script.js"></script>
