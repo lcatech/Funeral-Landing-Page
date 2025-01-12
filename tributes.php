@@ -1,6 +1,24 @@
 <?php
 include 'core/db_connection.php';
 
+// Get tribute statistics
+$stats = $conn->query("
+    SELECT 
+        status,
+        COUNT(*) as count 
+    FROM tributes 
+    GROUP BY status
+")->fetch_all(MYSQLI_ASSOC);
+
+$tribute_stats = [
+    'pending' => 0,
+    'approved' => 0
+];
+
+foreach ($stats as $stat) {
+    $tribute_stats[$stat['status']] = $stat['count'];
+}
+
 // Pagination setup
 $tributes_per_page = 10; // Show 4 tributes (2 rows of 2)
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -47,7 +65,7 @@ if ($randomIdQuery->num_rows > 0) {
             padding: 0;
             line-height: 1.2;
             font-weight: 600;
-            text-align: left;
+            text-align: center;
         }
         .modern-tributes-container {
             max-width: 1400px;
@@ -309,6 +327,94 @@ if ($randomIdQuery->num_rows > 0) {
                 padding: 2rem;
             }
         }
+
+
+        .tribute-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin: 2rem auto;
+        max-width: 1200px;
+        padding: 0 2rem;
+    }
+
+    .stat-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 1.2rem;
+        padding: 2rem 3rem;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        min-width: 200px;
+        transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 3.2rem;
+        color: #fad14b;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        display: block;
+        font-size: 1.4rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .modern-no-tributes {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 1.6rem;
+        padding: 4rem;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 4rem auto;
+        max-width: 800px;
+    }
+
+    .tribute-status {
+        font-size: 1.8rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1.5rem;
+    }
+
+    .tribute-cta {
+        font-size: 1.6rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 768px) {
+        .tribute-stats {
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+       
+    .tribute-statistics-section {
+            margin-top: 6rem;
+            padding-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tribute-statistics-section h2 {
+            text-align: center;
+            color: #fad14b;
+            font-size: 2.4rem;
+            margin-bottom: 2rem;
+        }
+
     </style>
 </head>
 
@@ -335,8 +441,11 @@ if ($randomIdQuery->num_rows > 0) {
         </div>
     </div>
 
-    <!-- Modern Tributes Section -->
-    <div class="modern-tributes-container">
+
+ 
+
+   <!-- Tributes Section -->
+   <div class="modern-tributes-container">
         <?php if ($result->num_rows > 0): ?>
             <div class="modern-tributes-list">
                 <?php while ($row = $result->fetch_assoc()): ?>
@@ -392,8 +501,26 @@ if ($randomIdQuery->num_rows > 0) {
                 </div>
             <?php endif; ?>
         <?php else: ?>
-            <p class="modern-no-tributes">No tributes have been submitted yet.</p>
+            <div class="modern-no-tributes">
+                <p>No approved tributes have been submitted yet.</p>
+                <p class="tribute-cta">Be the first to share your memories by clicking the "Leave a Tribute" button above.</p>
+            </div>
         <?php endif; ?>
+
+        <!-- Stats Section at Bottom -->
+        <div class="tribute-statistics-section">
+            <h2>Tribute Statistics</h2>
+            <div class="tribute-stats">
+                <div class="stat-card">
+                    <span class="stat-number"><?= $tribute_stats['approved'] ?></span>
+                    <span class="stat-label">Published Tributes</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number"><?= $tribute_stats['pending'] ?></span>
+                    <span class="stat-label">Awaiting Approval</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>

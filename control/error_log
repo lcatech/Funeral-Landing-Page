@@ -1,0 +1,45 @@
+[14-Dec-2024 14:23:21 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:24:53 UTC] PHP Parse error:  Unclosed '{' on line 5 in /home/revelukf/public_html/control/login.php on line 48
+[14-Dec-2024 14:24:57 UTC] PHP Parse error:  Unclosed '{' on line 5 in /home/revelukf/public_html/control/login.php on line 48
+[14-Dec-2024 14:25:42 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:25:55 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:27:01 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE username = ?' at line 1 in /home/revelukf/public_html/control/admin-create.php:8
+Stack trace:
+#0 /home/revelukf/public_html/control/admin-create.php(8): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/control/admin-create.php on line 8
+[14-Dec-2024 14:27:07 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE username = ?' at line 1 in /home/revelukf/public_html/control/admin-create.php:8
+Stack trace:
+#0 /home/revelukf/public_html/control/admin-create.php(8): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/control/admin-create.php on line 8
+[14-Dec-2024 14:29:48 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:30:02 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:31:41 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:33:42 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:34:29 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:40:44 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:42:17 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:46:47 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 14:47:21 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 17:38:15 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 17:41:42 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 17:42:09 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[14-Dec-2024 17:42:17 UTC] PHP Warning:  Undefined array key "role" in /home/revelukf/public_html/control/admin.php on line 5
+[10-Jan-2025 21:53:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function logAdminActivity() in /home/revelukf/public_html/control/admin.php:51
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/admin.php on line 51
+[10-Jan-2025 21:54:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function logAdminActivity() in /home/revelukf/public_html/control/admin.php:51
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/admin.php on line 51
+[10-Jan-2025 21:54:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function logAdminActivity() in /home/revelukf/public_html/control/admin.php:46
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/admin.php on line 46
+[11-Jan-2025 00:53:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function logAdminActivity() in /home/revelukf/public_html/control/approve_admin.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/approve_admin.php on line 26
+[11-Jan-2025 01:06:46 UTC] PHP Parse error:  syntax error, unexpected token "<" in /home/revelukf/public_html/control/approve_admin.php on line 95

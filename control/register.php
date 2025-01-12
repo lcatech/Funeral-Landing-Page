@@ -1,64 +1,45 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
+
 include '../core/db_connection.php';
 
-/* // Only allow existing admins to create new admin accounts
-if (!isset($_SESSION['logged_in']) || $_SESSION['role'] !== 'admin') {
-    header("Location: login.php");
-    exit();
-} */
+// Test database connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = htmlspecialchars(trim($_POST['username']));
+    $username = trim($_POST['username']);
     $password = trim($_POST['password']);
     $confirm_password = trim($_POST['confirm_password']);
     
     $errors = [];
     
-    // Validate username
-    if (strlen($username) < 4) {
-        $errors[] = "Username must be at least 4 characters long";
-    }
-    
-    // Check if username already exists
-    $stmt = $conn->prepare("SELECT id FROM admin_users WHERE username = ?");
-    $stmt->bind_param('s', $username);
-    $stmt->execute();
-    if ($stmt->get_result()->num_rows > 0) {
-        $errors[] = "Username already exists";
-    }
-    
-    // Validate password
-    if (strlen($password) < 8) {
-        $errors[] = "Password must be at least 8 characters long";
-    }
-    if (!preg_match("/[A-Z]/", $password)) {
-        $errors[] = "Password must contain at least one uppercase letter";
-    }
-    if (!preg_match("/[a-z]/", $password)) {
-        $errors[] = "Password must contain at least one lowercase letter";
-    }
-    if (!preg_match("/[0-9]/", $password)) {
-        $errors[] = "Password must contain at least one number";
-    }
-    
-    // Check if passwords match
-    if ($password !== $confirm_password) {
-        $errors[] = "Passwords do not match";
+    // Basic validation
+    if (empty($username) || empty($password) || empty($confirm_password)) {
+        $errors[] = "All fields are required";
     }
     
     if (empty($errors)) {
         // Hash password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         
-        // Insert new admin
-        $stmt = $conn->prepare("INSERT INTO admin_users (username, password) VALUES (?, ?)");
+        // Simple insert query
+        $sql = "INSERT INTO admin_users (username, password, role, status) VALUES (?, ?, 'no_access', 'pending')";
+        
+        $stmt = $conn->prepare($sql);
+        if (!$stmt) {
+            die("Prepare failed: " . $conn->error);
+        }
+        
         $stmt->bind_param('ss', $username, $hashed_password);
         
         if ($stmt->execute()) {
-            $success = "Admin account created successfully";
+            $success = "Account created successfully. An administrator will review and approve your account.";
         } else {
-            $errors[] = "Error creating account: " . $conn->error;
+            $errors[] = "Error creating account: " . $stmt->error;
         }
     }
 }
@@ -68,50 +49,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Admin Account</title>
+    <title>Register Account</title>
     <style>
-        .error { color: red; }
-        .success { color: green; }
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 500px; margin: 0 auto; }
+        .error { color: red; margin-bottom: 10px; }
+        .success { color: green; margin-bottom: 10px; }
         .form-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 5px; }
-        input { width: 100%; padding: 8px; margin-bottom: 10px; }
-        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
-        button:hover { background-color: #0056b3; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h1>Create New Admin Account</h1>
-    
-    <?php if (!empty($errors)): ?>
-        <?php foreach ($errors as $error): ?>
-            <p class="error"><?= htmlspecialchars($error) ?></p>
-        <?php endforeach; ?>
-    <?php endif; ?>
-    
-    <?php if (isset($success)): ?>
-        <p class="success"><?= htmlspecialchars($success) ?></p>
-    <?php endif; ?>
-    
-    <form method="POST" action="register.php">
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required 
-                   value="<?= isset($_POST['username']) ? htmlspecialchars($_POST['username']) : '' ?>">
-        </div>
+    <div class="container">
+        <h1>Register Account</h1>
         
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" required>
-        </div>
+        <?php if (!empty($errors)): ?>
+            <?php foreach ($errors as $error): ?>
+                <p class="error"><?= htmlspecialchars($error) ?></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
         
-        <div class="form-group">
-            <label for="confirm_password">Confirm Password:</label>
-            <input type="password" name="confirm_password" id="confirm_password" required>
-        </div>
+        <?php if (isset($success)): ?>
+            <p class="success"><?= htmlspecialchars($success) ?></p>
+        <?php endif; ?>
         
-        <button type="submit">Create Admin Account</button>
-    </form>
-    
-    <p><a href="admin.php">Back to Admin Panel</a></p>
+        <form method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" name="confirm_password" id="confirm_password" required>
+            </div>
+            
+            <button type="submit">Register Account</button>
+        </form>
+        
+        <p><a href="login.php">Back to Login</a></p>
+    </div>
 </body>
 </html>

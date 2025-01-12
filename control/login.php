@@ -1,30 +1,40 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 
 include '../core/db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = htmlspecialchars(trim($_POST['username']));
-    $password = htmlspecialchars(trim($_POST['password']));
-
-    // Fetch admin details
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    
     $stmt = $conn->prepare("SELECT * FROM admin_users WHERE username = ?");
     $stmt->bind_param('s', $username);
     $stmt->execute();
     $result = $stmt->get_result();
-    $admin = $result->fetch_assoc();
-
-    // Check if admin exists and password matches
-    if ($admin && password_verify($password, $admin['password'])) {
-        // Store session data
-        $_SESSION['logged_in'] = true;
-        $_SESSION['admin_id'] = $admin['id'];
-        $_SESSION['username'] = $admin['username'];
-        $_SESSION['role'] = 'admin';  // Added role for admin.php check
-
-        // Redirect to admin panel
-        header("Location: admin.php");
-        exit();
+    $user = $result->fetch_assoc();
+    
+    if ($user && password_verify($password, $user['password'])) {
+        if ($user['status'] === 'active') {
+            // Set session variables
+            $_SESSION['logged_in'] = true;
+            $_SESSION['admin_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
+            
+            // Clear any output buffers
+            while (ob_get_level()) {
+                ob_end_clean();
+            }
+            
+            // Redirect with absolute path
+            $redirect_url = 'admin.php';  // Adjust this path if needed
+            header("Location: $redirect_url");
+            exit();
+        } else {
+            $error = "Account is not active";
+        }
     } else {
         $error = "Invalid username or password";
     }
@@ -36,17 +46,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
+    <style>
+        .error { color: red; margin-bottom: 15px; }
+        form { max-width: 400px; margin: 20px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
 </head>
 <body>
-    <h1>Admin Login</h1>
-    <?php if (isset($error)): ?>
-        <p style="color: red;"><?= htmlspecialchars($error) ?></p>
-    <?php endif; ?>
-    <form method="POST" action="login.php">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required>
+    <form method="POST">
+        <h1>Admin Login</h1>
+        
+        <?php if (isset($error)): ?>
+            <div class="error"><?= htmlspecialchars($error) ?></div>
+        <?php endif; ?>
+        
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        
         <button type="submit">Login</button>
     </form>
 </body>
