@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "tributes_db";
+$dbname = "tributes";
 
 // Create and check database connection
 $conn = new mysqli($servername, $username, $password, $dbname);

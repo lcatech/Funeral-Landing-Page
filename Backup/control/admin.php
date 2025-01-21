@@ -1,10 +1,4 @@
 <?php
-
-// Add these lines at the very top, before session_start()
-ini_set('default_charset', 'UTF-8');
-mb_internal_encoding('UTF-8');
-mb_http_output('UTF-8');
-
 session_start();
 
 // Check if user is logged in and has appropriate access
@@ -175,7 +169,6 @@ $result = $stmt->get_result();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="admin-styles.css">
@@ -391,21 +384,13 @@ $result = $stmt->get_result();
 
     <script>
         // Modal handling functions
-    function openEditModal(row) {
-        document.getElementById('editModal').style.display = 'block';
-        document.getElementById('edit_id').value = row.id;
-        // Decode HTML entities and ensure proper UTF-8 encoding
-        document.getElementById('edit_name').value = decodeHTMLEntities(row.name);
-        document.getElementById('edit_relationship').value = decodeHTMLEntities(row.relationship);
-        document.getElementById('edit_message').value = decodeHTMLEntities(row.message);
-    }
-
-    // Add helper function to decode HTML entities
-    function decodeHTMLEntities(text) {
-        const textarea = document.createElement('textarea');
-        textarea.innerHTML = text;
-        return textarea.value;
-    }
+        function openEditModal(row) {
+            document.getElementById('editModal').style.display = 'block';
+            document.getElementById('edit_id').value = row.id;
+            document.getElementById('edit_name').value = row.name;
+            document.getElementById('edit_relationship').value = row.relationship;
+            document.getElementById('edit_message').value = row.message;
+        }
 
         function closeEditModal() {
             document.getElementById('editModal').style.display = 'none';

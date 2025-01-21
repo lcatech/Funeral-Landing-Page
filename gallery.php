@@ -10,9 +10,15 @@ $subfolders = array_filter(glob($galleryDir . '*'), 'is_dir');
 // Get the selected folder from the filter (default to 'all')
 $selectedFolder = isset($_GET['filter']) ? $_GET['filter'] : 'all';
 
-// Generate a new random seed if it doesn't exist in the session
-if (!isset($_SESSION['gallery_seed'])) {
-    $_SESSION['gallery_seed'] = rand(1, 1000000);
+// Get sort order (default to newest first)
+$sortOrder = isset($_GET['sort']) ? $_GET['sort'] : 'newest';
+
+// Function to get image with its modification time
+function getImageWithTime($path) {
+    return [
+        'path' => $path,
+        'mtime' => filemtime($path)
+    ];
 }
 
 // Prepare the list of images based on the selected filter
@@ -27,30 +33,38 @@ if ($selectedFolder === 'all') {
 
         // Append images from this subfolder to the main images array
         foreach ($folderImages as $image) {
-            $images[] = $subfolder . '/' . $image; // Store full path
+            $fullPath = $subfolder . '/' . $image;
+            $images[] = getImageWithTime($fullPath);
         }
     }
 } else {
     $folderPath = $galleryDir . $selectedFolder;
     if (is_dir($folderPath)) {
-        $images = array_filter(scandir($folderPath), function ($file) use ($folderPath, $allowedExtensions) {
+        $folderImages = array_filter(scandir($folderPath), function ($file) use ($folderPath, $allowedExtensions) {
             $filePath = $folderPath . '/' . $file;
             $fileExtension = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
             return is_file($filePath) && in_array($fileExtension, $allowedExtensions);
         });
-        $images = array_map(function ($image) use ($folderPath) {
-            return $folderPath . '/' . $image;
-        }, $images);
+        
+        foreach ($folderImages as $image) {
+            $fullPath = $folderPath . '/' . $image;
+            $images[] = getImageWithTime($fullPath);
+        }
     }
 }
 
-// Use the session seed to randomize images consistently within the session
-srand($_SESSION['gallery_seed']);
-shuffle($images);
-srand(); // Reset the random seed to not affect other random operations
+// Sort images based on modification time
+usort($images, function($a, $b) use ($sortOrder) {
+    if ($sortOrder === 'oldest') {
+        return $a['mtime'] - $b['mtime'];
+    }
+    return $b['mtime'] - $a['mtime']; // newest first (default)
+});
 
-// Re-index array for easier handling
-$images = array_values($images);
+// Extract just the paths for use in the template
+$images = array_map(function($img) {
+    return $img['path'];
+}, $images);
 
 // Pagination setup
 $itemsPerPage = 20;
@@ -60,6 +74,11 @@ $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
 $page = max(1, min($page, $totalPages)); // Clamp page value between 1 and totalPages
 $startIndex = ($page - 1) * $itemsPerPage;
 $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
+
+// Function to format date for image tooltips
+function formatImageDate($path) {
+    return date("F j, Y, g:i a", filemtime($path));
+}
 ?>
 
 
@@ -70,231 +89,326 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 
         <style>
   /* Grid Layout */
-  .gallery-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+.gallery-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem;
+}
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 2fr);
-            gap: 2.2rem;
-        }
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.2rem;
+}
 
-        .gallery-item {
-            position: relative;
-            width: 100%;
-            padding-top: 100%;
-            overflow: hidden;
-            border-radius: 1.2rem;
-        }
+.gallery-item {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 1.2rem;
+}
 
-        .gallery-item img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.6s;
-        }
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.6s;
+}
 
-        .gallery-item img:hover {
-            transform: scale(1.05);
-        }
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
 
-        /* Modal Styling */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            touch-action: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+/* Filter Controls */
+.filter-container {
+    text-align: center;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
 
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
+.control-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
-        .modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.control-label {
+    font-family: 'Sofia', sans-serif;
+    color: #666;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
 
-        .modal img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+.styled-select {
+    position: relative;
+    min-width: 180px;
+    font-family: 'Sofia', sans-serif;
+}
 
-        .modal img.loaded {
-            opacity: 1;
-        }
+.styled-select select {
+    width: 100%;
+    padding: 0.8rem 2.5rem 0.8rem 1rem;
+    font-size: 1.5rem;
+    border: 2px solid #efbf04;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.3s ease;
+}
 
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: white;
-            color: black;
-            padding: 10px;
-            border-radius: 50%;
-            font-size: 20px;
-            text-decoration: none;
-            cursor: pointer;
-            z-index: 1001;
-        }
+.styled-select select:hover {
+    border-color: #d1a204;
+}
 
-        .modal-close:hover {
-            background: #f4f4f4;
-        }
+.styled-select select:focus {
+    border-color: #d1a204;
+    box-shadow: 0 0 0 3px rgba(209, 162, 4, 0.2);
+}
 
-        /* Navigation Arrows */
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-            user-select: none;
-            z-index: 1001;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 50%;
-        }
+.styled-select::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #efbf04;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
 
-        .modal-prev {
-            left: 20px;
-        }
+.styled-select:hover::after {
+    border-top-color: #d1a204;
+}
 
-        .modal-next {
-            right: 20px;
-        }
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    touch-action: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-        .modal-nav:hover {
-            color: #d1a204;
-        }
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
 
-        /* Pagination */
-        .pagination {
-            text-align: center;
-            margin-top: 2rem;
-        }
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.modal img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-        .pagination a {
-            display: inline-block;
-            margin: 0 5px;
-            padding: 10px 15px;
-            background: #efbf04;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+.modal img.loaded {
+    opacity: 1;
+}
 
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+}
 
-        .pagination a:hover {
-            background: #d1a204;
-        }
+.modal-close:hover {
+    background: #f4f4f4;
+}
 
+/* Navigation Arrows */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1001;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
 
-        .pagination .active {
-            background: #d1a204;
-            pointer-events: none;
-        }
+.modal-prev {
+    left: 20px;
+}
 
+.modal-next {
+    right: 20px;
+}
 
-        @media (max-width: 75em) {
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-                /* Customizable grid: Set max 4 items per row */
-                gap: 2rem;
-            }
-        }
+.modal-nav:hover {
+    color: #d1a204;
+    background: rgba(0, 0, 0, 0.7);
+}
 
+/* Pagination */
+.pagination {
+    margin-top: 3rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
 
-        @media (max-width: 63em) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                /* Customizable grid: Set max 4 items per row */
-                gap: 2rem;
-            }
+.pagination a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 0.8rem;
+    background: white;
+    color: #666;
+    text-decoration: none;
+    border: 2px solid #efbf04;
+    border-radius: 8px;
+    font-family: 'Sofia', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
 
+.pagination a:hover {
+    background: #efbf04;
+    color: white;
+    transform: translateY(-1px);
+}
 
-        }
+.pagination .active {
+    background: #d1a204;
+    border-color: #d1a204;
+    color: white;
+    font-weight: bold;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(209, 162, 4, 0.3);
+}
 
+.pagination a[href*="page=1"],
+.pagination a[href*="Last"] {
+    font-weight: 600;
+    padding: 0 1.2rem;
+}
 
-        /* Styled Dropdown Menu */
-        .styled-select {
-            position: relative;
-            display: inline-block;
-            width: 200px;
-            font-family: 'Sofia', sans-serif;
-        }
+.image-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(0,0,0,0.7);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    z-index: 1001;
+}
 
-        .styled-select select {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background: #efbf04;
-            color: #fff;
-            padding: 10px 15px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            outline: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: background 0.3s ease;
-            width: 100%;
-        }
+/* Responsive Design */
+@media (max-width: 75em) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
 
-        .styled-select select:hover {
-            background: #d1a204;
-        }
+@media (max-width: 63em) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
 
-        .styled-select:after {
-            content: '\25BC'; /* Downward arrow symbol */
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1rem;
-            color: #fff;
-            pointer-events: none;
-        }
-
-        .styled-select select:focus {
-            box-shadow: 0 0 4px #d1a204;
-        }
-
-        /* Dropdown container spacing */
-        .filter-container {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+@media (max-width: 40em) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .control-group {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .styled-select {
+        width: 100%;
+    }
+    
+    .pagination a {
+        min-width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-nav {
+        font-size: 1.5rem;
+        padding: 8px;
+    }
+    
+    .modal-prev {
+        left: 10px;
+    }
+    
+    .modal-next {
+        right: 10px;
+    }
+}
     </style>
 
     
@@ -304,45 +418,56 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
     <div class="gallery-container">
         <h1 style="color: #d1a204; font-size: 6rem; font-family: Sofia; margin-bottom: 3rem;">Gallery</h1>
 
-<!-- Add Upload Button -->
-<div class="upload-button-container" style="text-align: center; margin-bottom: 2rem;">
-        <a href="media/upload.php" class="upload-button" style="
-            display: inline-block;
-            background: #efbf04;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-family: 'Sofia', sans-serif;
-            font-size: 1.1rem;
-            transition: background 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        ">
-            Share Your Pictures
-        </a>
-    </div>
-
-        
-        <!-- Filter Dropdown -->
-        <div class="filter-container">
-            <form method="GET" action="gallery.php" class="styled-select">
-                <select name="filter" onchange="this.form.submit()">
-                    <option value="all" <?= $selectedFolder === 'all' ? 'selected' : '' ?>>All</option>
-                    <?php foreach ($subfolders as $subfolder): ?>
-                        <?php $folderName = basename($subfolder); ?>
-                        <option value="<?= $folderName ?>" <?= $selectedFolder === $folderName ? 'selected' : '' ?>>
-                            <?= ucfirst(str_replace('-', ' ', $folderName)) ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            </form>
+        <!-- Upload Button -->
+        <div class="upload-button-container" style="text-align: center; margin-bottom: 2rem;">
+            <a href="media/upload.php" class="upload-button" style="
+                display: inline-block;
+                background: #efbf04;
+                color: white;
+                padding: 12px 24px;
+                text-decoration: none;
+                border-radius: 8px;
+                font-family: 'Sofia', sans-serif;
+                font-size: 2rem;
+                transition: background 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            ">
+                Share Your Pictures
+            </a>
         </div>
 
+        
+         <!-- Filter and Sort Controls -->
+         <div class="filter-container">
+    <form method="GET" action="gallery.php" class="control-group">
+        <div class="styled-select">
+            <span class="control-label">Category</span>
+            <select name="filter" onchange="this.form.submit()">
+                <option value="all" <?= $selectedFolder === 'all' ? 'selected' : '' ?>>All Folders</option>
+                <?php foreach ($subfolders as $subfolder): ?>
+                    <?php $folderName = basename($subfolder); ?>
+                    <option value="<?= $folderName ?>" <?= $selectedFolder === $folderName ? 'selected' : '' ?>>
+                        <?= ucfirst(str_replace('-', ' ', $folderName)) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="styled-select">
+            <span class="control-label">Sort By</span>
+            <select name="sort" onchange="this.form.submit()">
+                <option value="newest" <?= $sortOrder === 'newest' ? 'selected' : '' ?>>Newest First</option>
+                <option value="oldest" <?= $sortOrder === 'oldest' ? 'selected' : '' ?>>Oldest First</option>
+            </select>
+        </div>
+    </form>
+</div>
+
+        <!-- Gallery Grid -->
         <div class="gallery-grid">
             <?php foreach ($paginatedImages as $index => $image): ?>
                 <div class="gallery-item">
-                    <a href="#modal-<?= $startIndex + $index ?>">
-                        <img src="<?= $image ?>" alt="Gallery Image">
+                    <a href="#modal-<?= $startIndex + $index ?>" title="Uploaded: <?= formatImageDate($image) ?>">
+                        <img src="<?= $image ?>" alt="Gallery Image" loading="lazy">
                     </a>
                 </div>
             <?php endforeach; ?>
@@ -355,7 +480,10 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
                     <a href="#" class="modal-close">&times;</a>
                     <a href="#modal-<?= $startIndex + (($index - 1 + count($paginatedImages)) % count($paginatedImages)) ?>"
                         class="modal-nav modal-prev">&#8249;</a>
-                    <img src="<?= $image ?>" alt="Full Image">
+                    <img src="<?= $image ?>" alt="Full Image" loading="lazy">
+                    <div class="image-info" style="position: absolute; bottom: 20px; left: 20px; color: white; background: rgba(0,0,0,0.7); padding: 10px; border-radius: 5px;">
+                        Uploaded: <?= formatImageDate($image) ?>
+                    </div>
                     <a href="#modal-<?= $startIndex + (($index + 1) % count($paginatedImages)) ?>"
                         class="modal-nav modal-next">&#8250;</a>
                 </div>
@@ -364,11 +492,29 @@ $paginatedImages = array_slice($images, $startIndex, $itemsPerPage);
 
         <!-- Pagination -->
         <div class="pagination">
-            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                <a href="?filter=<?= $selectedFolder ?>&page=<?= $i ?>" class="<?= $i === $page ? 'active' : '' ?>">
-                    <?= $i ?>
-                </a>
-            <?php endfor; ?>
+            <?php if ($totalPages > 1): ?>
+                <?php if ($page > 1): ?>
+                    <a href="?filter=<?= $selectedFolder ?>&sort=<?= $sortOrder ?>&page=1">First</a>
+                    <a href="?filter=<?= $selectedFolder ?>&sort=<?= $sortOrder ?>&page=<?= $page - 1 ?>">Previous</a>
+                <?php endif; ?>
+
+                <?php
+                $startPage = max(1, $page - 2);
+                $endPage = min($totalPages, $page + 2);
+                
+                for ($i = $startPage; $i <= $endPage; $i++):
+                ?>
+                    <a href="?filter=<?= $selectedFolder ?>&sort=<?= $sortOrder ?>&page=<?= $i ?>" 
+                       class="<?= $i === $page ? 'active' : '' ?>">
+                        <?= $i ?>
+                    </a>
+                <?php endfor; ?>
+
+                <?php if ($page < $totalPages): ?>
+                    <a href="?filter=<?= $selectedFolder ?>&sort=<?= $sortOrder ?>&page=<?= $page + 1 ?>">Next</a>
+                    <a href="?filter=<?= $selectedFolder ?>&sort=<?= $sortOrder ?>&page=<?= $totalPages ?>">Last</a>
+                <?php endif; ?>
+            <?php endif; ?>
         </div>
     </div>
 

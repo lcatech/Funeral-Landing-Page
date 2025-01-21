@@ -45,7 +45,7 @@ if ($user && password_verify($password, $user['password'])) {
         }
         
         // Default redirect if no pending action
-        header("Location: admin.php");
+        header("Location: /control/admin.php");
         exit();
     } else {
         $error = "Account is not active";

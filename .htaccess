@@ -1,8 +1,13 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
-# Remove .php extension - redirect from actual URL to pretty URL
+# Force HTTPS (place this first)
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove .php extension - combine both rules into one
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+RewriteCond %{REQUEST_METHOD} !POST
 RewriteRule ^ %1 [R=301,L]
 
 # Internally map pretty URL to actual PHP file
@@ -17,66 +22,25 @@ RewriteRule ^gallery\.php$ /gallery/%1? [R=301,L]
 # Disable directory listing
 Options -Indexes
 
-# Force HTTPS
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Prevent access to sensitive files
-<FilesMatch "^.*\.(log|yaml|tpl|ini|conf|json|config|inc|bak|old|sql|php~|engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl|sw[op]|git.*|composer\.(json|lock))$|^(Entries.*|Repository|Root|Tag|Template|composer\.(json|lock))$">
+# Simplified file protection
+<FilesMatch "\.(log|yaml|tpl|ini|conf|json|config|inc|bak|sql|git)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
-# Prevent access to .htaccess and other hidden files
-<Files .htaccess>
-    Order allow,deny
-    Deny from all
-</Files>
+# Security Headers - removed 'always' where not critical
+Header set X-Frame-Options SAMEORIGIN
+Header set X-Content-Type-Options nosniff
+Header set X-XSS-Protection "1; mode=block"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 
-<FilesMatch "^\.">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
-
-
-
-# Prevent access to PHP source code
-<FilesMatch "\.php$">
-    SetHandler application/x-httpd-php
-</FilesMatch>
+# Hide PHP version
+Header unset X-Powered-By
+php_flag expose_php Off
 
 # Custom error pages
 ErrorDocument 403 /errors/403.html
 ErrorDocument 404 /errors/404.html
 ErrorDocument 500 /errors/500.html
-
-# Security Headers
-# Prevent ClickJacking
-Header always append X-Frame-Options SAMEORIGIN
-
-# Prevent MIME type sniffing
-Header set X-Content-Type-Options nosniff
-
-# Enable XSS Protection
-Header set X-XSS-Protection "1; mode=block"
-
-# Enforce HTTPS (HSTS)
-Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-
-# Referrer Policy
-Header set Referrer-Policy "strict-origin-when-cross-origin"
-
-# Allow POST requests to process properly
-RewriteCond %{REQUEST_METHOD} !POST
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-RewriteRule ^ %1 [R=301,L]
-
-# Permissions Policy
-Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-
-# Content Security Policy (CSP) - Uncomment and adjust as needed
-# Header set Content-Security-Policy "default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'none';"
-
-# Hide PHP version
-Header unset X-Powered-By
-php_flag expose_php Off
