@@ -7,8 +7,7 @@
     <meta name="Memorial Website" content="Rev. Elijah O. Akinyemi's Memorial" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.ico" />
-    <title>In Loving Memory | Reverend Elijah O. Akinyemi</title>
-    <!-- Fonts -->
+    <title><?= isset($pageTitle) ? $pageTitle : 'In Loving Memory | Reverend Elijah O. Akinyemi' ?></title>    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -18,6 +17,7 @@
     <!-- Stylesheets -->
     <link href="css/main.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/gallery.css" />
+    <link href="css/popup.css" rel="stylesheet" />
     <!--<link rel="stylesheet" href="css/tributes.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Font Awesome -->

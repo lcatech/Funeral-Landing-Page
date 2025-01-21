@@ -2,6 +2,8 @@
 session_start();
 require_once 'core/db_connection.php';
 require_once 'core/email_notification.php';
+require_once 'TributeProcessor.php';
+$processor = new TributeProcessor($conn);
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -17,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: /preview');
                 exit;
                 
-            case 'submit':
-                // Generate shorter reference ID using current timestamp and random numbers
-                $reference = 'T' . strtoupper(substr(base_convert(time(), 10, 36) . substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 3), 0, 8));
-                $imagePath = null;
+                case 'submit':
+                    // Generate shorter reference ID using current timestamp and random numbers
+                    $reference = 'T' . strtoupper(substr(base_convert(time(), 10, 36) . substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 3), 0, 8));
+                    $imagePath = null;
                 
                 // Handle image upload
                 if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
@@ -58,47 +60,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
                 
-                // Prepare and execute database insertion
-                $stmt = $conn->prepare("INSERT INTO tributes (name, location, church_name, relationship, message, status, reference, image) VALUES (?, ?, ?, ?, ?, 'pending', ?, ?)");
+        
                 
-                $stmt->bind_param("sssssss", 
-                    $_POST['name'],
-                    $_POST['location'],
-                    $_POST['church_name'],
-                    $_POST['relationship'],
-                    $_POST['message'],
-                    $reference,
-                    $imagePath
-                );
-                
-                if ($stmt->execute()) {
-                    // Prepare tribute data for email notification
-                    $tributeData = [
-                        'reference' => $reference,
-                        'name' => $_POST['name'],
-                        'location' => $_POST['location'],
-                        'church_name' => $_POST['church_name'],
-                        'relationship' => $_POST['relationship'],
-                        'message' => $_POST['message'],
-                        'image' => $imagePath,
-                        'status' => 'pending'
-                    ];
+                // Process the tribute using TributeProcessor
+    if ($processor->processNewTribute([
+        'name' => $_POST['name'],
+        'location' => $_POST['location'],
+        'church_name' => $_POST['church_name'],
+        'relationship' => $_POST['relationship'],
+        'message' => $_POST['message'],
+        'reference' => $reference,
+        'image' => $imagePath
+    ])) {
+        // Prepare tribute data for email notification
+        $tributeData = [
+            'reference' => $reference,
+            'name' => $_POST['name'],
+            'location' => $_POST['location'],
+            'church_name' => $_POST['church_name'],
+            'relationship' => $_POST['relationship'],
+            'message' => $_POST['message'],
+            'image' => $imagePath,
+            'status' => 'pending'
+        ];
                     
                     // Send email notification
-                    $notification = new TributeNotification();
-                    $notification->sendNewTributeNotification($tributeData);
+        $notification = new TributeNotification();
+        $notification->sendNewTributeNotification($tributeData);
                     
                     // Set success message and redirect
-                    $_SESSION['success'] = "Thank you for your tribute. It has been submitted successfully and will be available on the page after review.";
-                    unset($_SESSION['form_data']);
-                    header('Location: /tributes');
-                    exit();
-                } else {
-                    $_SESSION['error'] = "Error submitting tribute. Please try again.";
-                    header('Location: /sharememory');
-                    exit();
-                }
-                break;
+        $_SESSION['success'] = "Thank you for your tribute. It has been submitted successfully and will be available on the page after review.";
+        unset($_SESSION['form_data']);
+        header('Location: tributes.php');
+        exit();
+    } else {
+        $_SESSION['error'] = "Error submitting tribute. Please try again.";
+        header('Location: /sharememory');
+        exit();
+    }
+    break;
                 
             case 'delete':
                 if (isset($_POST['id'])) {

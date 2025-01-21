@@ -1,6 +1,5 @@
 <?php include 'nav/header.php'; ?>
 
-<body>
 
 
   <!-- HERO SECTION -->
@@ -105,6 +104,10 @@
           Local Christian Assembly, Lagos <br>
           136, Lagos Street, Ebute-Metta, Lagos <br>
           Thursday 20, February 2025 | <span style="color: #fff"> 10am </span>
+          <hr>
+          <b> RECEPTION </b><br>
+          Paradise Arena Events Center<br>
+Murtala Muhammed Way, beside Alagomeji Bus Stop, Yaba, Lagos
         </div>
 
 
@@ -124,10 +127,42 @@
     </div>
   </section>
 
+  <!-- WhatsApp Channel Popup -->
+<!-- WhatsApp Channel Popup -->
+<div id="whatsappPopup" class="popup-container">
+    <div class="popup">
+        <div class="popup-header">
+            <h3 class="popup-title">Join Our Updates Channel</h3>
+            <button onclick="closePopup()" class="close-button" aria-label="Close notification">&times;</button>
+        </div>
+        <div class="popup-content">
+            Welcome to the official channel for updates, arrangements, and coordination of memorial events celebrating the life of Rev. Elijah Oluranti Akinyemi. Family members and well-wishers are welcome to stay informed about tributes, service schedules, and other important announcements.
+        </div>
+        <a href="https://whatsapp.com/channel/0029VayH0su47XeL3cHyKK2b" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="whatsapp-link">
+            Join WhatsApp Channel →
+        </a>
+    </div>
+</div>
 
 </body>
 
 <script>
+
+function closePopup() {
+    document.getElementById('whatsappPopup').classList.add('hidden');
+    sessionStorage.setItem('whatsappPopupClosed', 'true'); // Changed from localStorage to sessionStorage
+}
+
+// Check if popup was previously closed in this session
+window.addEventListener('DOMContentLoaded', function() {
+    if (sessionStorage.getItem('whatsappPopupClosed')) {
+        document.getElementById('whatsappPopup').classList.add('hidden');
+    }
+});
+
 function updateCountdown() {
   const targetDate = new Date('2025-02-17T16:00:00').getTime();
   

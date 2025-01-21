@@ -1,0 +1,10 @@
+[20-Jan-2025 12:58:35 UTC] Starting export process...
+[20-Jan-2025 12:58:35 UTC] Created export_tracking table and inserted initial record
+[20-Jan-2025 12:58:35 UTC] Last exported ID: 0
+[20-Jan-2025 12:58:35 UTC] Found 18 new records
+[20-Jan-2025 12:58:35 UTC] Creating CSV at: /tmp/tributes_export_2025-01-20_12-58-35.csv
+[20-Jan-2025 12:58:35 UTC] Sending export to e.oluak@gmail.com: Success
+[20-Jan-2025 12:58:35 UTC] Sending export to mikeltosin@gmail.com: Success
+[20-Jan-2025 12:58:35 UTC] Successfully updated last exported ID to: 21
+[20-Jan-2025 12:58:35 UTC] Successfully exported and emailed 18 records
+[20-Jan-2025 12:58:35 UTC] Export script completed. Result: Success

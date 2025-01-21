@@ -43,3 +43,105 @@ Stack trace:
 #0 {main}
   thrown in /home/revelukf/public_html/control/approve_admin.php on line 26
 [11-Jan-2025 01:06:46 UTC] PHP Parse error:  syntax error, unexpected token "<" in /home/revelukf/public_html/control/approve_admin.php on line 95
+[19-Jan-2025 11:06:09 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'bccebif_token' in 'WHERE' in /home/revelukf/public_html/control/quick-actions.php:23
+Stack trace:
+#0 /home/revelukf/public_html/control/quick-actions.php(23): mysqli->prepare()
+#1 /home/revelukf/public_html/control/quick-actions.php(35): verifyAccess()
+#2 {main}
+  thrown in /home/revelukf/public_html/control/quick-actions.php on line 23
+[20-Jan-2025 11:28:52 UTC] PHP Warning:  require_once(/core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/export_Script.php on line 2
+[20-Jan-2025 11:28:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/core/db_connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/export_Script.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/export_Script.php on line 2
+[20-Jan-2025 11:30:27 UTC] Successfully exported and emailed 17 records
+[20-Jan-2025 11:34:17 UTC] No new records to export
+[20-Jan-2025 11:44:18 UTC] No new records to export
+[20-Jan-2025 11:46:50 UTC] No new records to export
+[20-Jan-2025 11:50:29 UTC] PHP Warning:  require_once(TributesExport.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/test_export.php on line 6
+[20-Jan-2025 11:50:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'TributesExport.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/test_export.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/test_export.php on line 6
+[20-Jan-2025 11:52:25 UTC] No new records to export
+[20-Jan-2025 11:52:25 UTC] No new records to export
+[20-Jan-2025 11:54:31 UTC] Successfully exported and emailed 17 records
+[20-Jan-2025 11:56:16 UTC] Successfully exported and emailed 17 records
+[20-Jan-2025 11:56:16 UTC] No new records to export
+[20-Jan-2025 12:04:05 UTC] Successfully exported and emailed 17 records
+[20-Jan-2025 12:27:23 UTC] Successfully exported and emailed 19 records
+[20-Jan-2025 12:40:19 UTC] Successfully exported and emailed 21 records
+[20-Jan-2025 12:47:29 UTC] Successfully exported and emailed 18 records
+[20-Jan-2025 12:58:35 UTC] Starting tributes export script
+[20-Jan-2025 20:21:25 UTC] PHP Warning:  require_once(/home/revelukf/public_html/control../core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:21:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/revelukf/public_html/control../core/db_connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/clean.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:21:36 UTC] PHP Warning:  require_once(/home/revelukf/public_html/control../core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:21:36 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/revelukf/public_html/control../core/db_connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/clean.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:22:17 UTC] PHP Warning:  require_once(/home/revelukf/public_html/control../core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:22:17 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/revelukf/public_html/control../core/db_connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/clean.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:22:57 UTC] PHP Warning:  require_once(/home/revelukf/public_html/control/core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:22:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/revelukf/public_html/control/core/db_connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/clean.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:23:02 UTC] PHP Warning:  require_once(/home/revelukf/public_html/control/core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:23:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/revelukf/public_html/control/core/db_connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/clean.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:24:45 UTC] PHP Warning:  require_once(/home/revelukf/public_html/control../core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:24:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/revelukf/public_html/control../core/db_connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/clean.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:25:25 UTC] PHP Warning:  require_once(/home/revelukf/public_html/control/core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:25:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/revelukf/public_html/control/core/db_connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/clean.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:25:38 UTC] PHP Warning:  require_once(/home/revelukf/public_html/control/core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:25:38 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/revelukf/public_html/control/core/db_connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/clean.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/clean.php on line 2
+[20-Jan-2025 20:26:29 UTC] PHP Warning:  require_once(/home/revelukf/public_html/control../core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/clean.php on line 13
+[20-Jan-2025 20:26:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/revelukf/public_html/control../core/db_connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/clean.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/clean.php on line 13
+[20-Jan-2025 21:37:56 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:37:57 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:38:10 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:38:18 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:39:23 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:47:48 UTC] PHP Warning:  require_once(../core/functions.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/admin.php on line 16
+[20-Jan-2025 21:47:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../core/functions.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/admin.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/admin.php on line 16
+[20-Jan-2025 21:47:56 UTC] PHP Warning:  require_once(../core/functions.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/admin.php on line 16
+[20-Jan-2025 21:47:56 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../core/functions.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/admin.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/admin.php on line 16
+[20-Jan-2025 21:48:11 UTC] PHP Warning:  require_once(../core/functions.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/control/admin.php on line 16
+[20-Jan-2025 21:48:11 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../core/functions.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/control/admin.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/control/admin.php on line 16
+[20-Jan-2025 21:49:11 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:49:46 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:50:10 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:50:14 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:50:16 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:50:17 UTC] PHP Warning:  Undefined variable $total_pages in /home/revelukf/public_html/control/admin.php on line 237
+[20-Jan-2025 21:54:00 UTC] PHP Parse error:  syntax error, unexpected token "endif", expecting end of file in /home/revelukf/public_html/control/admin.php on line 439

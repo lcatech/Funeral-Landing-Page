@@ -23,28 +23,20 @@ h4 {
   margin-bottom: 1.5rem;
 }
 
-
-
-body {
-  position: relative;
-  min-height: 100vh;
-  background-image: url("../images/background.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* This helps with scrolling behavior */
-}
-
-/* If you want to keep the blur effect, use an overlay */
-.background-overlay {
-  position: fixed;
+body::before {
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  backdrop-filter: blur(2.8px);
+  background-image: url("../images/background.webp") !important;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2.8px);
+  width: 100%;
+  height: 100%; /* Maintain aspect ratio */
   z-index: -1;
-  pointer-events: none;
 }
 
 nav {
@@ -54,12 +46,9 @@ nav {
   height: 1rem;
   top: 0;
   z-index: 100;
-  margin-left: 0; /* Remove margin-left */
+  margin-left: 10rem;
   font-family: Montserrat;
-  margin-bottom: 0;
-  width: 100%; /* Add width */
-  display: flex;
-  justify-content: center; /* Center the navigation */
+  margin-bottom: 0rem; /* Add space below the navigation menu */
 }
 
 /*---------------- NAV SECTION ------------------*/
@@ -68,25 +57,24 @@ nav {
     background-repeat: no-repeat;
   } */
 
-  .header {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center; /* Changed from space-around to center */
-    background-color: transparent;
-    height: 6rem;
-    padding: 0 2rem;
-    margin-bottom: 5rem;
-  }
-  
-  .main-nav-list {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 5rem;
-    margin-left: 0; /* Remove negative margin */
-    padding: 0;
-  }
+.header {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-around;
+  background-color: transparent;
+  height: 6rem;
+  padding: 0 2rem;
+  margin-bottom: 5rem; /* Optional: control header-to-content spacing */
+}
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  margin-left: -4rem;
+}
 
 .main-nav-link:link,
 .main-nav-link:visited {
@@ -225,23 +213,21 @@ nav {
   align-items: center; /* Vertically align items */
 }
 
-/* Update the hero-image styles */
 .hero-image {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column; /* Stack the image and quote vertically */
+  align-items: center; /* Center align image and quote */
+  justify-content: center; /* Center content vertically */
   text-align: center;
-  width: 100%; /* Added to ensure proper container width */
 }
 
 .hero-image img {
-  width: 100%; /* Fixed width instead of 100% */
-  height: 100%; /* Added height to ensure perfect circle */
-  object-fit: cover; /* Ensures image fills the space properly */
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1.5rem;
+  width: 100%; /* Ensure image scales with container */
+  max-width: 100%; /* Set maximum width for image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Circular image */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
+  margin-bottom: 1.5rem; /* Space between image and quote */
 }
 
 .hero-text {
@@ -292,157 +278,6 @@ nav {
   font-weight: bold;
 }
 
-/* Add these styles to your main.css */
-
-
-
-.tribute-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 4rem;
-}
-
-.h1-container {
-  flex: 1;
-}
-
-.h1-container h1 {
-  color: #efbf04;
-  margin-top: 2rem;
-  font-family: Sofia;
-  font-size: 4rem; /* Added specific font size */
-  font-weight: 600;
-}
-
-.banner-button {
-  flex: 0 0 auto;
-  margin-left: 2rem;
-  text-align: right;
-}
-
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
-  background: #efbf04;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.cta-button:hover {
-  background: #d1a204;
-  transform: translateY(-3px);
-}
-
-.cta-button i {
-  font-size: 1.1rem;
-}
-
-@media (max-width: 768px) {
-  .tribute-wrapper {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .h1-container {
-    flex: none;
-  }
-  
-  .h1-container h1 {
-    text-align: center;
-    font-size: 3.2rem;
-  }
-  
-  .banner-button {
-    margin-left: 0;
-    text-align: center;
-  }
-  
-  .cta-button {
-    min-width: 200px;
-    justify-content: center;
-  }
-}
-
-/* Separate styles for RSVP button */
-
-/* RSVP specific section */
-.rsvp-section .rsvp-cta-container {
-  text-align: center;
-  padding: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
-}
-
-.rsvp-section .rsvp-cta-text {
-  font-size: 1.8rem;
-  color: #ffffff;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  font-family: "Montserrat", sans-serif;
-}
-
-.rsvp-section .rsvp-cta-button {
-  display: inline-block;
-  padding: 1.2rem 3rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #fff;
-  background: #fad14b;
-  border: none;
-  border-radius: 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.rsvp-section .rsvp-cta-button:hover {
-  background: #8f7503;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.rsvp-section .rsvp-cta-button:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .rsvp-section .rsvp-cta-container {
-    padding: 1.5rem;
-    margin: 1.5rem;
-  }
-
-  .rsvp-section .rsvp-cta-text {
-    font-size: 1.6rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .rsvp-section .rsvp-cta-button {
-    padding: 1rem 2.4rem;
-    font-size: 1.4rem;
-  }
-}
-
-
 .cta-section p {
   margin-bottom: 2rem;
   color: #ffefbc;
@@ -463,206 +298,271 @@ nav {
 .form-container {
   max-width: 450px;
   width: 90%;
-  margin: 4rem auto;
+  margin: 3rem auto;
   position: relative;
-  padding: 3rem;
-  background: linear-gradient(145deg, #e4c754, #fad14b);
+  padding: 2rem;
+  background: #e4c754;
   border-radius: 2rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15),
-              0 2px 6px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+#tribute-form {
+  padding: 30px;
+  background: inherit;
+  border-radius: inherit;
+}
 
-
-/* Remove the #tribute-form specific styles since they're now consolidated */
-
-.form-container h3 {
-  color: #333;
+#tribute-form h3 {
+  color: black;
   font-family: "Sofia", cursive;
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 2.5rem;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
 }
 
+.dropdown-text {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
 
-
-.form-container input[type="text"],
-.form-container textarea,
-.form-container select {
+fieldset {
+  border: none !important;
+  margin: 0 0 1rem;
   width: 100%;
-  padding: 1.2rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.4rem;
-  color: #333;
-  transition: all 0.3s ease;
+  padding: 0;
 }
 
-.form-container form input[type="text"],
-.form-container form textarea,
-.form-container form select {
+#tribute-form input[type="text"],
+#tribute-form textarea,
+#tribute-form select {
   width: 100%;
-  padding: 1.2rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 12px;
+  margin-bottom: 10px;
   border-radius: 1rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.4rem;
-  color: #333;
-  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-size: 1rem;
 }
 
-.form-container textarea {
-  min-height: 120px;
-  line-height: 1.6;
-  resize: vertical;
+#tribute-form input[type="text"]:hover,
+#tribute-form textarea:hover,
+#tribute-form select:hover {
+  border: 1px solid #aaa;
+  transition: border-color 0.3s ease-in-out;
 }
 
-.form-container select {
+#tribute-form textarea {
+  height: 150px;
+  resize: none;
+}
+
+#tribute-form select {
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.dropdown {
+  margin-bottom: 0;
+}
+
+/* Button Styling */
+#tribute-form button[type="submit"] {
   cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1.5rem;
-  padding-right: 3rem;
-}
-
-.form-container input[type="file"] {
   width: 100%;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 1rem;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-.form-container button[type="submit"] {
-  width: 100%;
-  padding: 1.2rem;
-  background: #fad14b;
-  color: #fff;
   border: none;
   border-radius: 1rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.form-container fieldset {
-  border: none !important;
-  margin: 0 0 1.5rem !important;
-  padding: 0 !important;
-  width: 100%;
-}
-
-
-.form-container button[type="submit"]:hover {
-  background: #8f7503;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.form-container button[type="submit"]:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Placeholder styling */
-.form-container ::placeholder {
-  color: #888;
-  opacity: 0.8;
-}
-
-/* Help text styling */
-.form-container .help-text {
-  font-size: 1.2rem;
-  color: #666;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-/* File input description */
-.form-container .file-description {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 0.5rem;
-}
-
-.form-container .file-info {
+  background: #333; /* Dark background for contrast */
+  color: #fff;
+  padding: 12px;
   font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#tribute-form button[type="submit"]:hover {
+  background: #555; /* Slightly lighter on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#tribute-form button[type="submit"]:active {
+  background: #e4c754; /* Gold active state */
+  color: #333;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Focus Effects */
+#tribute-form input:focus,
+#tribute-form textarea:focus,
+#tribute-form select:focus {
+  outline: none;
+  border: 1px solid #e4c754; /* Gold border on focus */
+  box-shadow: 0 0 4px rgba(228, 199, 84, 0.4);
+}
+
+::-webkit-input-placeholder {
   color: #888;
-  margin-top: 0.5rem;
+}
+:-moz-placeholder {
+  color: #888;
+}
+::-moz-placeholder {
+  color: #888;
+}
+:-ms-input-placeholder {
+  color: #888;
 }
 
-/* RSVP specific styles - add to main.css */
-.form-container input[type="number"] {
-  width: 100%;
-  padding: 1.2rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
+#preview-container {
+  max-width: 600px;
+  height: 100rem;
+  margin: 4rem auto;
+  background: #211c0c;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   font-family: "Montserrat", sans-serif;
-  font-size: 1.4rem;
   color: #333;
-  transition: all 0.3s ease;
-  -moz-appearance: textfield;
 }
 
-.form-container input[type="number"]::-webkit-outer-spin-button,
-.form-container input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+#preview-section {
+  height: 76vh;
 }
 
-.form-container input[type="tel"],
-.form-container input[type="email"] {
-  width: 100%;
-  padding: 1.2rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
+#preview-section h3 {
   font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #333; /* Darker text for contrast */
+}
+
+#preview-content p {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+  line-height: 1.6;
+  color: #373737; /* Neutral text color */
+}
+
+#preview-section img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#preview-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 6rem;
+  gap: 2rem;
+}
+
+#preview-buttons button,
+#preview-buttons a {
+  background: #3b3316; /* Gold theme */
+  color: #fff;
+  padding: 12px 20px;
   font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 1rem;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  cursor: pointer;
+  border: none;
+}
+
+#preview-buttons button:hover,
+#preview-buttons a:hover {
+  background: #675b36;
+}
+
+#preview-buttons button:active,
+#preview-buttons a:active {
+  background: #c5a046;
+}
+
+button.delete-button {
+  background: #e74c3c;
+  color: #fff;
+}
+
+button.delete-button:hover {
+  background: #c0392b;
+}
+
+button.delete-button:active {
+  background: #a93226;
+}
+
+/* Tributes Section */
+.tributes-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.tributes-container h1 {
+  font-size: 2rem;
   color: #333;
-  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  text-align: left;
 }
 
-@media (max-width: 768px) {
-  .form-container {
-    padding: 2rem;
-    margin: 2rem auto;
-  }
-
-  .form-container h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .form-container input[type="text"],
-  .form-container textarea,
-  .form-container select,
-  .form-container button[type="submit"] {
-    font-size: 1.4rem;
-    padding: 1rem;
-  }
+.tributes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
+.tribute {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+.tribute h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
 
+.tribute-date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  text-align: left; /* Ensures left alignment */
+}
 
+.tribute p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
 
+.tribute-thumbnail {
+  max-height: 300px; /* Ensure the height is also constrained */
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Ensure the image fills the box nicely without distortion */
+  margin: 0 auto; /* Center the image if there's extra spacing */
+}
+
+.tribute-thumbnail:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
 /* Modal Section */
 .modal {
@@ -708,8 +608,28 @@ nav {
   background: #f4f4f4;
 }
 
+/* Leave a Tribute Button */
+.banner-button {
+  text-align: center;
+  margin-top: 2rem;
+}
 
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: #efbf04;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.cta-button:hover {
+  background: #d1a204;
+  transform: translateY(-3px);
+}
 
 /* Gallery Container */
 .gallery-container {
@@ -855,6 +775,12 @@ nav {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
 }
 
+.tribute-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensures vertical alignment */
+  padding: 2rem 31rem;
+}
 
 
 
@@ -901,14 +827,12 @@ nav {
 }
 
 .tribute img {
-    display: block;
-    max-width: 300px; /* Set a specific maximum width */
-    width: 100%; /* Make it responsive */
-    height: auto;
-    border-radius: 0.5rem;
-    margin: 1rem auto; /* Center the image */
-    object-fit: cover; /* Maintain aspect ratio while covering the area */
-  }
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
 
 /* Horizontal Separator */
 hr {
@@ -946,7 +870,11 @@ p {
     padding: 4rem;
   }
 
-
+  .tribute-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
 }
 
 @media (max-width: 63em) {
@@ -1049,23 +977,13 @@ p {
     color: #e8bc0d;
   }
 
-
+  .form-container {
+    padding: 3.6rem;
+  }
 }
 
 .hero-text {
   font-size: 1.8rem;
-}
-
-@media (max-width: 768px) {
-  .hero-image img {
-    width: 250px; /* Slightly smaller on mobile */
-    height: 250px;
-  }
-
-  .hero-container {
-    margin-left: 0;
-    padding: 0 2rem;
-  }
 }
 
 @media (max-width: 52em) {
@@ -1116,6 +1034,34 @@ p {
   }
 }
 
+@media (max-width: 768px) {
+  /* Tribute Section */
+  .tribute {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tribute-date {
+    text-align: center;
+  }
+
+  .tribute-thumbnail {
+    padding-top: 5px;
+    max-width: 100px;
+  }
+
+  .tribute-text {
+    margin-top: 2rem;
+  }
+
+  .tribute-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    text-align: center;
+  }
 
   /* Banner Section */
   .banner {
@@ -1137,6 +1083,10 @@ p {
     font-size: 1.6rem;
   }
 
+  .banner-button {
+    width: 100%;
+    text-align: center;
+  }
 
   /* Tributes Container */
   .tributes-container {
@@ -1147,7 +1097,133 @@ p {
     margin-bottom: 1rem;
   }
 
-  
+  /* Preview Section */
+  .preview-container {
+    padding: 1.5rem;
+  }
+
+  .preview-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .preview-buttons button,
+  .preview-buttons a {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  /* Form Section */
+  .form-container {
+    padding: 20px;
+  }
+
+  #tribute-form h3 {
+    font-size: 1.5rem;
+  }
+
+  #tribute-form input[type="text"],
+  #tribute-form textarea,
+  #tribute-form select {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  #tribute-form button[type="submit"] {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .tribute-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* RSVP Form Styling */
+
+
+form fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+form label {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form input:focus {
+  border-color: #efbf04;
+  box-shadow: 0 0 5px rgba(239, 191, 4, 0.5);
+  outline: none;
+}
+
+button.button-rsvp {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #796202;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.button-rsvp:hover {
+  background-color: #d9a703;
+}
+
+@media (max-width: 768px) {
+  .form-container2 {
+    padding: 15px;
+  }
+
+  .form-container2 h1 {
+    font-size: 2rem;
+  }
+
+  form label {
+    font-size: 1rem;
+  }
+}
+
+/* Link Button Styling */
+.link-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background-color: #efbf04;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.link-button:hover {
+  background-color: #d9a703;
+}
+
 
 /* Form Section Container */
 .form-section2 {
@@ -1156,10 +1232,89 @@ p {
   padding: 0 20px;
 }
 
+/* Form Container */
+.rsvp-form {
+  background-color: #e4c754;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  margin: 2rem auto;
+}
 
+/* Form Header */
+.rsvp-form h4 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
 
+/* Form Fields */
+#rsvp-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
 
+#rsvp-form label {
+  display: block;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
 
+#rsvp-form input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+#rsvp-form input:focus {
+  border-color: #796202;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(121, 98, 2, 0.1);
+}
+
+/* Number Input Specific Styles */
+#rsvp-form input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#rsvp-form input[type="number"]::-webkit-outer-spin-button,
+#rsvp-form input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Submit Button */
+.button-rsvp {
+  width: 100%;
+  padding: 14px 24px;
+  background-color: #796202;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.button-rsvp:hover {
+  background-color: #8f7503;
+}
+
+.button-rsvp:active {
+  transform: translateY(1px);
+}
 
 /* Success and Error Messages */
 .success,
@@ -1183,7 +1338,47 @@ p {
   border: 1px solid #ffcdd2;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .rsvp-form {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
 
+  .rsvp-form h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #rsvp-form input {
+    padding: 10px 14px;
+    margin-bottom: 1.25rem;
+  }
+
+  .button-rsvp {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rsvp-form {
+    padding: 1.25rem;
+  }
+
+  .form-section2 {
+    padding: 0 15px;
+  }
+
+  #rsvp-form label {
+    font-size: 0.95rem;
+  }
+
+  #rsvp-form input {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+}
 
 /* Add this to your existing style section */
 .upload-button-container {
@@ -1208,133 +1403,4 @@ p {
   background: #d1a204;
   text-decoration: none;
   color: white;
-}
-
-#preview-container {
-  max-width: 450px;
-  width: 90%;
-  margin: 4rem auto;
-  position: relative;
-  padding: 3rem;
-  background: linear-gradient(145deg, #e4c754, #fad14b);
-  border-radius: 2rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15),
-              0 2px 6px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-#preview-container h3 {
-  color: #333;
-  font-family: "Sofia", cursive;
-  text-align: center;
-  font-size: 2.4rem;
-  font-weight: 600;
-  margin-bottom: 2.5rem;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-#preview-content {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 2rem;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  font-family: "Montserrat", sans-serif;
-}
-
-#preview-content p {
-  font-size: 1.4rem;
-  color: #333;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-#preview-content strong {
-  color: #fad14b;
-  font-weight: 600;
-}
-
-#preview-content img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 1rem;
-  margin: 1.5rem 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.image-name {
-  font-size: 1.2rem;
-  color: #666;
-  margin-top: 0.5rem;
-  text-align: center;
-}
-
-#preview-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-#preview-buttons button {
-  width: 100%;
-  padding: 1.2rem;
-  background: #fad14b;
-  color: #fff;
-  border: none;
-  border-radius: 1rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#preview-buttons button[type="submit"] {
-  background: #fad14b;
-}
-
-#preview-buttons button[onclick="window.history.back()"] {
-  background: #8f7503;
-}
-
-#preview-buttons .delete-button {
-  background: #c62828;
-}
-
-#preview-buttons button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-#preview-buttons button:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-  #preview-container {
-      padding: 2rem;
-      margin: 2rem auto;
-  }
-
-  #preview-container h3 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-  }
-
-  #preview-content {
-      padding: 1.5rem;
-  }
-
-  #preview-content p {
-      font-size: 1.3rem;
-  }
-
-  #preview-buttons button {
-      font-size: 1.4rem;
-      padding: 1rem;
-  }
 }

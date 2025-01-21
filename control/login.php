@@ -15,26 +15,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
     
-    if ($user && password_verify($password, $user['password'])) {
-        if ($user['status'] === 'active') {
-            // Set session variables
-            $_SESSION['logged_in'] = true;
-            $_SESSION['admin_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
-            
-            // Clear any output buffers
-            while (ob_get_level()) {
-                ob_end_clean();
-            }
-            
-            // Redirect with absolute path
-            $redirect_url = 'admin.php';  // Adjust this path if needed
-            header("Location: $redirect_url");
-            exit();
-        } else {
-            $error = "Account is not active";
+    // Replace the current success login block with this:
+if ($user && password_verify($password, $user['password'])) {
+    if ($user['status'] === 'active') {
+        // Set session variables
+        $_SESSION['logged_in'] = true;
+        $_SESSION['admin_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role'];
+        
+        // Clear any output buffers
+        while (ob_get_level()) {
+            ob_end_clean();
         }
+        
+        // Check for pending actions
+        if (isset($_SESSION['pending_action'])) {
+            $pendingAction = $_SESSION['pending_action'];
+            unset($_SESSION['pending_action']); // Clear it immediately
+            
+            if ($pendingAction['action'] === 'edit') {
+                header("Location: admin.php?action=edit&tribute=" . $pendingAction['tribute_id']);
+                exit();
+            } elseif ($pendingAction['action'] === 'approve') {
+                header("Location: quick-actions.php?action=approve&id=" . $pendingAction['tribute_id'] . 
+                       "&token=" . $pendingAction['token']);
+                exit();
+            }
+        }
+        
+        // Default redirect if no pending action
+        header("Location: /control/admin.php");
+        exit();
+    } else {
+        $error = "Account is not active";
+    }
     } else {
         $error = "Invalid username or password";
     }

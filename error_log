@@ -1,0 +1,614 @@
+[13-Dec-2024 15:54:33 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'eoa_admin'@'localhost' (using password: YES) in /home/revelukf/public_html/core/db_connection.php:8
+Stack trace:
+#0 /home/revelukf/public_html/core/db_connection.php(8): mysqli->__construct()
+#1 /home/revelukf/public_html/tributes.php(2): include('/home/revelukf/...')
+#2 {main}
+  thrown in /home/revelukf/public_html/core/db_connection.php on line 8
+[13-Dec-2024 15:57:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'eoa_admin'@'localhost' (using password: YES) in /home/revelukf/public_html/core/db_connection.php:8
+Stack trace:
+#0 /home/revelukf/public_html/core/db_connection.php(8): mysqli->__construct()
+#1 /home/revelukf/public_html/tributes.php(2): include('/home/revelukf/...')
+#2 {main}
+  thrown in /home/revelukf/public_html/core/db_connection.php on line 8
+[13-Dec-2024 17:19:36 UTC] PHP Warning:  move_uploaded_file(uploads/675c6ca82eeed-demo_image-150x150.jpg): Failed to open stream: No such file or directory in /home/revelukf/public_html/submit_tribute.php on line 18
+[13-Dec-2024 17:19:36 UTC] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpbKvPGX&quot; to &quot;uploads/675c6ca82eeed-demo_image-150x150.jpg&quot; in /home/revelukf/public_html/submit_tribute.php on line 18
+[14-Dec-2024 13:01:29 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 13:01:29 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 13:02:08 UTC] PHP Warning:  move_uploaded_file(uploads/675d81d01e96e.png): Failed to open stream: No such file or directory in /home/revelukf/public_html/submit_tribute.php on line 35
+[14-Dec-2024 13:02:08 UTC] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/php5y2YoY&quot; to &quot;uploads/675d81d01e96e.png&quot; in /home/revelukf/public_html/submit_tribute.php on line 35
+[14-Dec-2024 13:05:51 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 13:05:51 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 13:06:18 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/preview.php on line 61
+[14-Dec-2024 13:06:18 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/preview.php on line 61
+[14-Dec-2024 13:40:17 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 13:40:17 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 13:40:19 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 13:40:19 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 13:40:40 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 13:40:40 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 14:11:40 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 14:11:40 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 14:17:23 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 14:17:23 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 103
+[14-Dec-2024 17:29:17 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 17:29:17 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 17:37:47 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 17:37:47 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 18:22:29 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 18:22:29 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:50:25 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:50:25 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:50:43 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:50:43 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:54:36 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:54:36 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:55:17 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:55:17 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:55:20 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:55:20 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:55:29 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 21:55:29 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 22:03:56 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 22:03:56 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 22:03:59 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 22:03:59 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 22:32:03 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 22:32:03 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 22:40:03 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[14-Dec-2024 22:40:03 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[15-Dec-2024 08:55:22 UTC] PHP Warning:  scandir(uploads/gallery/): Failed to open directory: No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:55:22 UTC] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:55:22 UTC] PHP Fatal error:  Uncaught TypeError: array_filter(): Argument #1 ($array) must be of type array, bool given in /home/revelukf/public_html/gallery2.php:10
+Stack trace:
+#0 /home/revelukf/public_html/gallery2.php(10): array_filter()
+#1 {main}
+  thrown in /home/revelukf/public_html/gallery2.php on line 10
+[15-Dec-2024 08:55:26 UTC] PHP Warning:  scandir(uploads/gallery/): Failed to open directory: No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:55:26 UTC] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:55:26 UTC] PHP Fatal error:  Uncaught TypeError: array_filter(): Argument #1 ($array) must be of type array, bool given in /home/revelukf/public_html/gallery2.php:10
+Stack trace:
+#0 /home/revelukf/public_html/gallery2.php(10): array_filter()
+#1 {main}
+  thrown in /home/revelukf/public_html/gallery2.php on line 10
+[15-Dec-2024 08:55:34 UTC] PHP Warning:  scandir(uploads/gallery/): Failed to open directory: No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:55:34 UTC] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:55:34 UTC] PHP Fatal error:  Uncaught TypeError: array_filter(): Argument #1 ($array) must be of type array, bool given in /home/revelukf/public_html/gallery2.php:10
+Stack trace:
+#0 /home/revelukf/public_html/gallery2.php(10): array_filter()
+#1 {main}
+  thrown in /home/revelukf/public_html/gallery2.php on line 10
+[15-Dec-2024 08:55:35 UTC] PHP Warning:  scandir(uploads/gallery/): Failed to open directory: No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:55:35 UTC] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:55:35 UTC] PHP Fatal error:  Uncaught TypeError: array_filter(): Argument #1 ($array) must be of type array, bool given in /home/revelukf/public_html/gallery2.php:10
+Stack trace:
+#0 /home/revelukf/public_html/gallery2.php(10): array_filter()
+#1 {main}
+  thrown in /home/revelukf/public_html/gallery2.php on line 10
+[15-Dec-2024 08:56:33 UTC] PHP Warning:  scandir(uploads/gallery/): Failed to open directory: No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:56:33 UTC] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:56:33 UTC] PHP Fatal error:  Uncaught TypeError: array_filter(): Argument #1 ($array) must be of type array, bool given in /home/revelukf/public_html/gallery2.php:10
+Stack trace:
+#0 /home/revelukf/public_html/gallery2.php(10): array_filter()
+#1 {main}
+  thrown in /home/revelukf/public_html/gallery2.php on line 10
+[15-Dec-2024 08:56:33 UTC] PHP Warning:  scandir(uploads/gallery/): Failed to open directory: No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:56:33 UTC] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:56:33 UTC] PHP Fatal error:  Uncaught TypeError: array_filter(): Argument #1 ($array) must be of type array, bool given in /home/revelukf/public_html/gallery2.php:10
+Stack trace:
+#0 /home/revelukf/public_html/gallery2.php(10): array_filter()
+#1 {main}
+  thrown in /home/revelukf/public_html/gallery2.php on line 10
+[15-Dec-2024 08:56:44 UTC] PHP Warning:  scandir(uploads/gallery/): Failed to open directory: No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:56:44 UTC] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:56:44 UTC] PHP Fatal error:  Uncaught TypeError: array_filter(): Argument #1 ($array) must be of type array, bool given in /home/revelukf/public_html/gallery2.php:10
+Stack trace:
+#0 /home/revelukf/public_html/gallery2.php(10): array_filter()
+#1 {main}
+  thrown in /home/revelukf/public_html/gallery2.php on line 10
+[15-Dec-2024 08:56:55 UTC] PHP Warning:  scandir(uploads/gallery/): Failed to open directory: No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:56:55 UTC] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:56:55 UTC] PHP Fatal error:  Uncaught TypeError: array_filter(): Argument #1 ($array) must be of type array, bool given in /home/revelukf/public_html/gallery2.php:10
+Stack trace:
+#0 /home/revelukf/public_html/gallery2.php(10): array_filter()
+#1 {main}
+  thrown in /home/revelukf/public_html/gallery2.php on line 10
+[15-Dec-2024 08:57:55 UTC] PHP Warning:  scandir(uploads/gallery/): Failed to open directory: No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:57:55 UTC] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 08:57:55 UTC] PHP Fatal error:  Uncaught TypeError: array_filter(): Argument #1 ($array) must be of type array, bool given in /home/revelukf/public_html/gallery2.php:10
+Stack trace:
+#0 /home/revelukf/public_html/gallery2.php(10): array_filter()
+#1 {main}
+  thrown in /home/revelukf/public_html/gallery2.php on line 10
+[15-Dec-2024 09:02:46 UTC] PHP Warning:  scandir(uploads/gallery/): Failed to open directory: No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 09:02:46 UTC] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/revelukf/public_html/gallery2.php on line 6
+[15-Dec-2024 09:02:46 UTC] PHP Fatal error:  Uncaught TypeError: array_filter(): Argument #1 ($array) must be of type array, bool given in /home/revelukf/public_html/gallery2.php:10
+Stack trace:
+#0 /home/revelukf/public_html/gallery2.php(10): array_filter()
+#1 {main}
+  thrown in /home/revelukf/public_html/gallery2.php on line 10
+[16-Dec-2024 13:14:44 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[16-Dec-2024 13:14:44 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[16-Dec-2024 18:43:12 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[16-Dec-2024 18:43:12 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[16-Dec-2024 21:04:22 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[16-Dec-2024 21:04:22 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[16-Dec-2024 23:32:42 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[16-Dec-2024 23:32:42 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[17-Dec-2024 02:44:54 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[17-Dec-2024 02:44:54 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[19-Dec-2024 00:59:20 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[19-Dec-2024 00:59:20 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[19-Dec-2024 06:13:06 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[19-Dec-2024 06:13:06 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[19-Dec-2024 15:46:36 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[19-Dec-2024 15:46:36 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[19-Dec-2024 19:05:25 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[19-Dec-2024 19:05:25 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 01:46:50 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 01:46:50 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:04:55 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:04:55 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:04:58 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:04:58 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:04:59 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:04:59 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:06:27 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:06:27 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:06:53 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:06:53 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:08:06 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:08:06 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:11:00 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:11:00 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:11:08 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:11:08 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:12:16 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:12:16 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:13:35 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:13:35 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:13:35 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:13:35 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:14:43 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:14:43 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:16:33 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:16:33 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[21-Dec-2024 16:16:39 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:16:39 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:18:34 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:18:34 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:18:46 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:18:46 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:35 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:35 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:37 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:37 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:38 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:38 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:38 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:38 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:38 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:38 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:38 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:38 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:39 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:39 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:39 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:39 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:45 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:45 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:52 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:30:52 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:31:02 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:31:02 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:31:09 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:31:09 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:36:50 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:36:50 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:36:54 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:36:54 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:36:56 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 16:36:56 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 22:26:56 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 22:26:56 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 22:27:30 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 22:27:30 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 23:31:33 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[21-Dec-2024 23:31:33 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[22-Dec-2024 00:37:44 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[22-Dec-2024 00:37:44 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[22-Dec-2024 18:53:21 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[22-Dec-2024 18:53:21 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[23-Dec-2024 12:49:24 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[23-Dec-2024 12:49:24 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[23-Dec-2024 13:37:59 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/rsvp.php on line 88
+[23-Dec-2024 13:37:59 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/rsvp.php on line 88
+[24-Dec-2024 15:46:13 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[24-Dec-2024 15:46:13 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[25-Dec-2024 18:57:55 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[25-Dec-2024 18:57:55 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[26-Dec-2024 23:39:50 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[26-Dec-2024 23:39:50 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[27-Dec-2024 02:41:04 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[27-Dec-2024 02:41:04 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[28-Dec-2024 07:59:45 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[28-Dec-2024 07:59:45 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[28-Dec-2024 19:06:36 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[28-Dec-2024 19:06:36 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[29-Dec-2024 15:49:39 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[29-Dec-2024 15:49:39 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[31-Dec-2024 11:58:43 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[31-Dec-2024 11:58:43 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[31-Dec-2024 16:16:53 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[31-Dec-2024 16:16:53 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[31-Dec-2024 19:03:35 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[31-Dec-2024 19:03:35 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[01-Jan-2025 13:20:37 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[01-Jan-2025 13:20:37 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[01-Jan-2025 13:35:08 UTC] PHP Warning:  include(footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 104
+[01-Jan-2025 13:35:08 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 104
+[10-Jan-2025 10:27:19 UTC] PHP Warning:  Undefined variable $stmt in /home/revelukf/public_html/email.php on line 3
+[10-Jan-2025 10:27:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /home/revelukf/public_html/email.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/email.php on line 3
+[10-Jan-2025 10:31:16 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/email.php on line 6
+[10-Jan-2025 10:31:16 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/email.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/email.php on line 6
+[10-Jan-2025 10:31:19 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/email.php on line 6
+[10-Jan-2025 10:31:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/email.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/email.php on line 6
+[10-Jan-2025 10:32:05 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/email.php on line 6
+[10-Jan-2025 10:32:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/email.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/email.php on line 6
+[10-Jan-2025 12:00:55 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[10-Jan-2025 12:01:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[10-Jan-2025 13:52:17 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[10-Jan-2025 15:24:12 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[10-Jan-2025 19:31:05 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[10-Jan-2025 19:31:41 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[10-Jan-2025 19:45:39 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[10-Jan-2025 20:13:04 UTC] PHP Warning:  include(/nav/header.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 1
+[10-Jan-2025 20:13:04 UTC] PHP Warning:  include(): Failed opening '/nav/header.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 1
+[10-Jan-2025 20:13:04 UTC] PHP Warning:  include(/nav/footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 110
+[10-Jan-2025 20:13:04 UTC] PHP Warning:  include(): Failed opening '/nav/footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 110
+[10-Jan-2025 20:13:40 UTC] PHP Warning:  include(/nav/footer.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/sharememory.php on line 110
+[10-Jan-2025 20:13:40 UTC] PHP Warning:  include(): Failed opening '/nav/footer.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/sharememory.php on line 110
+[10-Jan-2025 20:14:30 UTC] PHP Warning:  include(/core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/submit_tribute.php on line 2
+[10-Jan-2025 20:14:30 UTC] PHP Warning:  include(): Failed opening '/core/db_connection.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/submit_tribute.php on line 2
+[10-Jan-2025 21:15:16 UTC] Failed to move file. Upload path: uploads/tributes/TRIBUTE_67818de475093_1736543716.jpg
+[10-Jan-2025 21:22:54 UTC] Failed to move file. Upload path: uploads/tributes/TRIBUTE_67818fae524a6_1736544174.jpg
+[10-Jan-2025 21:23:45 UTC] Failed to move file. Upload path: uploads/tributes/TRIBUTE_67818fe1bbd67_1736544225.jpg
+[11-Jan-2025 05:04:27 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[11-Jan-2025 07:54:04 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[11-Jan-2025 11:15:05 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[11-Jan-2025 11:16:26 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[11-Jan-2025 11:26:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[11-Jan-2025 16:10:34 UTC] PHP Warning:  include(/core/db_connection.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/submit_tribute.php on line 2
+[11-Jan-2025 16:10:34 UTC] PHP Warning:  include(): Failed opening '/core/db_connection.php' for inclusion (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/submit_tribute.php on line 2
+[11-Jan-2025 22:00:47 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[12-Jan-2025 14:55:35 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[12-Jan-2025 16:15:19 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[12-Jan-2025 19:38:22 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[12-Jan-2025 19:38:36 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[12-Jan-2025 19:39:02 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[13-Jan-2025 09:21:48 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[13-Jan-2025 18:46:04 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[14-Jan-2025 19:12:26 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[15-Jan-2025 07:26:08 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[17-Jan-2025 21:14:21 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[18-Jan-2025 07:05:25 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[18-Jan-2025 09:31:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'revelukf_tributes.rsvp' doesn't exist in /home/revelukf/public_html/rsvp.php:16
+Stack trace:
+#0 /home/revelukf/public_html/rsvp.php(16): mysqli->prepare()
+#1 {main}
+  thrown in /home/revelukf/public_html/rsvp.php on line 16
+[19-Jan-2025 23:04:29 UTC] PHP Fatal error:  Uncaught Error: Class "TributeProcessor" not found in /home/revelukf/public_html/TributeProcessor.php:8
+Stack trace:
+#0 /home/revelukf/public_html/TributeProcessor.php(41): TributeProcessorTest::testCorrections()
+#1 {main}
+  thrown in /home/revelukf/public_html/TributeProcessor.php on line 8
+[19-Jan-2025 23:04:37 UTC] PHP Fatal error:  Uncaught Error: Class "TributeProcessor" not found in /home/revelukf/public_html/TributeProcessor.php:8
+Stack trace:
+#0 /home/revelukf/public_html/TributeProcessor.php(41): TributeProcessorTest::testCorrections()
+#1 {main}
+  thrown in /home/revelukf/public_html/TributeProcessor.php on line 8
+[20-Jan-2025 12:12:39 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[20-Jan-2025 12:23:35 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[20-Jan-2025 12:37:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[20-Jan-2025 13:26:22 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[20-Jan-2025 18:12:10 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[20-Jan-2025 18:29:04 UTC] PHP Warning:  imap_open(): Couldn't open stream {reveoakinyemi.com:993/imap/ssl}INBOX in /home/revelukf/public_html/email_tributes.php on line 18
+[20-Jan-2025 18:36:14 UTC] Email connection error: Can't connect to mail.reveoakinyemi.com,993: Network is unreachable
+[20-Jan-2025 18:36:14 UTC] PHP Fatal error:  Uncaught Exception: Failed to connect to email server: Can't connect to mail.reveoakinyemi.com,993: Network is unreachable in /home/revelukf/public_html/email_tributes.php:25
+Stack trace:
+#0 /home/revelukf/public_html/email_tributes.php(183): EmailTributeProcessor->__construct()
+#1 {main}
+  thrown in /home/revelukf/public_html/email_tributes.php on line 25
+[20-Jan-2025 18:36:18 UTC] PHP Warning:  imap_open(): Couldn't open stream {mail.reveoakinyemi.com:143/imap/ssl}INBOX in /home/revelukf/public_html/email_tributes.php on line 18
+[20-Jan-2025 18:37:24 UTC] PHP Warning:  imap_open(): Couldn't open stream {mail.reveoakinyemi.com:143/imap/ssl}INBOX in /home/revelukf/public_html/email_tributes.php on line 18
+[20-Jan-2025 18:50:47 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "->" or "?->" or "{" or "[" in /home/revelukf/public_html/email-test.php on line 21
+[20-Jan-2025 18:51:13 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "->" or "?->" or "{" or "[" in /home/revelukf/public_html/email-test.php on line 21
+[20-Jan-2025 18:53:17 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "->" or "?->" or "{" or "[" in /home/revelukf/public_html/email-test.php on line 20
+[20-Jan-2025 18:53:21 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "->" or "?->" or "{" or "[" in /home/revelukf/public_html/email-test.php on line 20
+[20-Jan-2025 19:34:00 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "->" or "?->" or "{" or "[" in /home/revelukf/public_html/email-test.php on line 19
+[20-Jan-2025 19:38:32 UTC] Attempting connection with: {server331.web-hosting.com:993/imap/ssl/novalidate-cert}INBOX
+[20-Jan-2025 19:38:33 UTC] Error processing email 4: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE)
+[20-Jan-2025 19:38:33 UTC] Error processing email 6: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE)
+[20-Jan-2025 19:38:33 UTC] Error processing email 7: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE)
+[20-Jan-2025 19:38:33 UTC] Error processing email 8: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE)
+[20-Jan-2025 19:38:33 UTC] Error processing email 12: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE)
+[20-Jan-2025 19:38:33 UTC] Error processing email 14: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE)
+[20-Jan-2025 19:38:33 UTC] Error processing email 15: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE)
+[20-Jan-2025 19:38:33 UTC] Error processing email 16: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE)
+[20-Jan-2025 19:38:33 UTC] Error processing email 17: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE)
+[20-Jan-2025 19:38:33 UTC] Error processing email 18: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE)
+[20-Jan-2025 19:43:04 UTC] PHP Warning:  require_once(process_email_tributes.php): Failed to open stream: No such file or directory in /home/revelukf/public_html/email_tributes.php on line 6
+[20-Jan-2025 19:43:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'process_email_tributes.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/revelukf/public_html/email_tributes.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/revelukf/public_html/email_tributes.php on line 6
+[21-Jan-2025 07:37:58 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 08:57:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:00:15 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:04:12 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:13:21 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:13:38 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:13:47 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:16:37 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:26:34 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:26:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:29:41 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:29:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:30:07 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 09:39:38 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 10:39:03 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
+[21-Jan-2025 10:39:21 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`revelukf_tributes`.`tribute_tokens`, CONSTRAINT `tribute_tokens_ibfk_1` FOREIGN KEY (`tribute_id`) REFERENCES `tributes_old` (`id`) ON DELETE CASCADE) in /home/revelukf/public_html/core/email_notification.php:157
+Stack trace:
+#0 /home/revelukf/public_html/core/email_notification.php(157): mysqli_stmt->execute()
+#1 /home/revelukf/public_html/core/email_notification.php(61): TributeNotification->storeActionTokens()
+#2 /home/revelukf/public_html/core/email_notification.php(32): TributeNotification->createEmailBody()
+#3 /home/revelukf/public_html/sharememory.php(89): TributeNotification->sendNewTributeNotification()
+#4 {main}
+  thrown in /home/revelukf/public_html/core/email_notification.php on line 157
