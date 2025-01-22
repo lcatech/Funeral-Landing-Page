@@ -54,28 +54,66 @@ $pageTitle = "Tributes";
 
 // Message formatting function
 function formatTributeMessage($message) {
-    // First decode HTML entities
+    // Decode HTML entities
     $message = html_entity_decode($message, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-    
-    // Remove excess whitespace and empty lines
-    $message = preg_replace('/^\s+|\s+$/m', '', $message);
     
     // Normalize line endings
     $message = str_replace(["\r\n", "\r"], "\n", $message);
     
-    // Remove more than two consecutive blank lines
-    $message = preg_replace('/\n{3,}/', "\n\n", $message);
+    // Split into lines
+    $lines = explode("\n", $message);
+    $formatted = '';
+    $current_sentence = '';
     
-    // Ensure proper spacing after punctuation
-    $message = preg_replace('/([.!?])\s*(\S)/', '$1 $2', $message);
+    for ($i = 0; $i < count($lines); $i++) {
+        $line = trim($lines[$i]);
+        
+        // Skip empty lines if we're not after a sentence ending
+        if (empty($line) && !preg_match('/[.!?]$/', trim($current_sentence))) {
+            continue;
+        }
+        
+        // If we're continuing a sentence, add the line with a space
+        if (!empty($current_sentence) && !preg_match('/[.!?]$/', trim($current_sentence))) {
+            $current_sentence .= ' ' . $line;
+        } else {
+            // If we have a complete sentence, add it and check for break
+            if (!empty($current_sentence)) {
+                $formatted .= trim($current_sentence);
+                
+                // Check if this was the end of a sentence
+                $prev_line_ended_sentence = preg_match('/[.!?]$/', trim($lines[$i-1]));
+                
+                if ($prev_line_ended_sentence) {
+                    // Add single line break if there was any kind of break in original
+                    $next_non_empty = $i;
+                    while ($next_non_empty < count($lines) && empty(trim($lines[$next_non_empty]))) {
+                        $next_non_empty++;
+                    }
+                    
+                    if ($next_non_empty > $i) {
+                        $formatted .= "\n";
+                    } else {
+                        $formatted .= " ";
+                    }
+                }
+            }
+            $current_sentence = $line;
+        }
+    }
     
-    // Remove extra spaces between words
-    $message = preg_replace('/\s+/', ' ', $message);
+    // Add any remaining sentence
+    if (!empty($current_sentence)) {
+        $formatted .= trim($current_sentence);
+    }
     
-    // Restore paragraph breaks
-    $message = preg_replace('/\n\s*\n/', "\n\n", $message);
+    // Handle markdown-style bold text
+    $formatted = preg_replace('/\*\*(.*?)\*\*/', '<strong>$1</strong>', $formatted);
     
-    return trim($message);
+    // Final cleanup - ensure no double line breaks
+    $formatted = preg_replace('/\n{2,}/', "\n", $formatted);
+    
+    return trim($formatted);
 }
 ?>
 
